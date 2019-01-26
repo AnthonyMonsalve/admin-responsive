@@ -1,0 +1,4 @@
+<md-select name="rolesSelect" id="rolesSelect" ng-model="vm.model.roleId" placeholder="Roles">
+  <md-option ng-repeat="option in vm.roles.data track by option._id"
+          value="{{option._id}}">{{option.title}}</md-option>
+</md-select>

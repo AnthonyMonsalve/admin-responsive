@@ -1,0 +1,170 @@
+<div id="account-settings">
+  <div class="title-container" layout="row">
+    <div class="icon-container">
+      <i class="material-icons">settings</i>
+    </div>
+    <div>
+      <h2>Account settings</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+  <div layout="row" layout-align="space-between" layout-wrap>
+    <div class="flat-box" flex>
+
+      <section class="message">
+          <div layout="row">
+            <h3 class="title bold">Basic information</h3>
+            <div flex></div>
+            <div>
+
+            </div>
+          </div>
+          <p class="content">Change your current password</p>
+          <div class="form-container animated fadeIn">
+              <form name="changeUserDetailsForm" ng-submit="vm.changeUserDetails(changeUserDetailsForm,vm.edit)" novalidate>
+                  <div layout="column" class="form-item input">
+                      <input type="text"
+                             placeholder="First Name"
+                             name="first_name"
+                             class="form-control input_official"
+                             ng-model="vm.edit.first_name"
+                             style="text-transform: capitalize"
+                             required="">
+                      <span class="error-label" layout="row" ng-show="changeUserDetailsForm.first_name.$dirty && changeUserDetailsForm.first_name.$error.required">
+                          Frist name must be given.
+                      </span>                             
+                  </div>
+                  <div layout="column" class="form-item input">
+                      <input type="text"
+                             placeholder="Last Name"
+                             name="last_name"
+                             class="form-control input_official"
+                             ng-model="vm.edit.last_name"
+                             style="text-transform: capitalize"
+                             required="">
+                      <span class="error-label" layout="row" ng-show="changeUserDetailsForm.last_name.$dirty && changeUserDetailsForm.last_name.$error.required">
+                          Last name must be given.
+                      </span>                             
+                  </div>
+                  <div layout="column" class="form-item input">
+                      <input type="text" placeholder="Email" name="email" class="form-control input_official" ng-model="vm.edit.email" required>
+                      <p ng-if="vm.validationErrors.email">{{vm.validationErrors.email.msg}}</p>
+                      <span class="error-label" layout="row" ng-show="changeUserDetailsForm.email.$dirty && changeUserDetailsForm.email.$error.required">
+                          Email must be given.
+                      </span>
+                  </div>
+
+                  <div layout="column" class="form-item input">
+                      <input type="text"
+                             placeholder="State"
+                             name="state"
+                             class="form-control input_official"
+                             ng-model="vm.edit.state"
+                             style="text-transform: capitalize">
+                  </div>
+
+                  <div >
+                      <md-input-container flex style=" margin-top: 0px;
+                                    width: 100%;">
+                          <label>Country <span style="color:red">*</span></label>
+                          <md-select name="country"
+                                     ng-model="vm.edit.country"
+                                     required>
+                              <md-option ng-repeat="country in vm.countries" ng-value="country">
+                                  {{country}}
+                              </md-option>
+                          </md-select>
+                          <span class="error-label" ng-if="vm.validationErrors.country">{{vm.validationErrors.country.msg}}</span>
+                    <span class="error-label"
+                          layout="row"
+                          ng-show="(vm.submitted || changeUserDetailsForm.country.$dirty) && changeUserDetailsForm.country.$error.required">
+                       Country must be given.
+                    </span>
+                      </md-input-container>
+                  </div>
+                  <!--<div layout="column" class="form-item input">
+                      <input type="text"
+                             placeholder="Country"
+                             name="country"
+                             class="form-control input_official"
+                             ng-model="vm.edit.country"
+                             style="text-transform: capitalize"
+                             >
+                  </div>-->
+
+                  <div layout="column" ng-if="vm.serverError">
+                      <p class="error-label">
+                          {{vm.serverError}}
+                      </p>
+
+                      <button ng-click="vm.serverError = '';">X</button>
+                  </div>
+
+                  <div class="button-container" layout="row" layout-align="end">
+                      <button type="submit" class="button-official blue"
+                              ng-disabled="changeUserDetailsForm.$invalid">
+                          Save
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </section>
+    </div>
+
+    <div style="width:15px;"></div>
+
+    <div class="flat-box" flex>
+
+      <section class="message">
+        <div layout="row">
+          <h3 class="title bold">Security</h3>
+          <div flex></div>
+          <div>
+
+          </div>
+        </div>
+        <p class="content">Change your current password</p>
+        <div class="form-container animated fadeIn">
+          <form name="changePasswordUserForm" ng-submit="vm.changePasswordUser(changePasswordUserForm,vm.password)" novalidate>
+              <div layout="column" class="form-item input">
+                  <input type="password" placeholder="Old password" name="old_password" class="form-control input_official" ng-model="vm.password.old" required>
+                  <p ng-if="vm.validationErrors.old_password">{{vm.validationErrors.old_password.msg}}</p>
+                  <span class="error-label" layout="row" ng-show="changePasswordUserForm.old_password.$dirty && changePasswordUserForm.old_password.$error.required">
+                      Password must be given.
+                  </span>
+              </div>
+              <div layout="column" class="form-item input">
+                  <input type="password" placeholder="New password" name="new_password" class="form-control input_official" ng-model="vm.password.new" required>
+                  <p ng-if="vm.validationErrors.new_password">{{vm.validationErrors.new_password.msg}}</p>
+                  <span class="error-label" layout="row" ng-show="changePasswordUserForm.new_password.$dirty && changePasswordUserForm.new_password.$error.required">
+                      Password must be given.
+                  </span>
+              </div>
+              <div layout="column" class="form-item input">
+                  <input type="password" name="confirm_password" placeholder="Repeat new password" class="form-control input_official" ng-model="vm.password.confirm" required equals="{{vm.password.new}}">
+                  <span class="error-label" layout="row" ng-show="changePasswordUserForm.confirm_password.$error.equals">
+                      Passwords must be equal
+                  </span>
+              </div>
+
+              <div layout="column" ng-if="vm.serverError">
+                  <p class="error-label">
+                      {{vm.serverError}}
+                  </p>
+
+                  <button ng-click="vm.serverError = '';">X</button>
+              </div>
+
+              <div class="button-container" layout="row" layout-align="end">
+                  <button type="submit" class="button-official blue"
+                          ng-disabled="changePasswordUserForm.confirm_password.$error.equals || !(changePasswordUserForm.new_password.$dirty && changePasswordUserForm.confirm_password.$dirty)">
+                      Save
+                  </button>
+              </div>
+          </form>
+        </div>
+      </section>
+    </div>    
+  </div>
+</div>

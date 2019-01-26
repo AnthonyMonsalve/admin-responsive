@@ -1,0 +1,1103 @@
+<!doctype html ng-app="hiraApp">
+<html class="no-js" ng-app="hiraApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>YEiPii</title>
+    <meta name="description" content="Administrador">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css css/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/client/bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="/client/bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/client/bower_components/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="/client/bower_components/angular-material-data-table/dist/md-data-table.css" />
+    <link rel="stylesheet" href="/client/bower_components/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="/client/bower_components/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/client/bower_components/textAngular/dist/textAngular.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- build:css css/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/animations.css">
+    <link rel="stylesheet" href="/.tmp/app.css">
+    <link rel="stylesheet" href="/.tmp/balloon.css">
+    <link rel="stylesheet" href="/.tmp/material.css">
+    <link rel="stylesheet" href="/.tmp/reset.css">
+    <link rel="stylesheet" href="/client/bower_components/odometer/themes/odometer-theme-default.css">
+    <link rel="stylesheet" href="/client/bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+    <style type="text/css">
+        /**
+           * Hide when Angular is not yet loaded and initialized
+           */
+        
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div layout="row" id="wrapper" ng-include="'app/layout/shell.html'"></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>-->
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="/client/bower_components/angular/angular.js"></script>
+    <script src="/client/bower_components/json3/lib/json3.js"></script>
+    <script src="/client/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/client/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/client/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/client/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/client/bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="/client/bower_components/angular-socket-io/socket.js"></script>
+    <script src="/client/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/client/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/client/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/client/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/client/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/client/bower_components/angular-material/angular-material.js"></script>
+    <script src="/client/bower_components/ngstorage/ngStorage.js"></script>
+    <script src="/client/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/client/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/client/bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="/client/bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+    <script src="/client/bower_components/moment/moment.js"></script>
+    <script src="/client/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="/client/bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="/client/bower_components/odometer/odometer.js"></script>
+    <script src="/client/bower_components/angular-moment/angular-moment.js"></script>
+    <script src="/client/bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="/client/bower_components/rangy/rangy-core.js"></script>
+    <script src="/client/bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="/client/bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="/client/bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="/client/bower_components/rangy/rangy-serializer.js"></script>
+    <script src="/client/bower_components/rangy/rangy-textrange.js"></script>
+    <script src="/client/bower_components/textAngular/dist/textAngular.js"></script>
+    <script src="/client/bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="/client/bower_components/textAngular/dist/textAngularSetup.js"></script>
+    <script src="/client/bower_components/angular-bootstrap-contextmenu/contextMenu.js"></script>
+    <script src="/client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+
+    <script src="/client/app/auth/auth.module.js"></script>
+
+    <script src="/client/app/connections/connections.module.js"></script>
+
+    <script src="/client/app/core/core.module.js"></script>
+
+    <script src="/client/app/filters/filters.module.js"></script>
+
+    <script src="/client/app/layout/layout.module.js"></script>
+
+    <script src="/client/app/widgets/widgets.module.js"></script>
+
+    <script src="/client/app/auth/login/login.module.js"></script>
+
+    <script src="/client/app/auth/settings/settings.module.js"></script>
+
+    <script src="/client/app/auth/signup/signup.module.js"></script>
+
+    <script src="/client/app/blocks/stateManager/state.module.js"></script>
+
+    <script src="/client/app/layout/content/content.module.js"></script>
+
+    <script src="/client/app/layout/content/footer/footer.module.js"></script>
+
+    <script src="/client/app/layout/content/navbar/navbar.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/pages.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/access.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/business.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/account.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/catalogues.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/contact_us/contact_us.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/home/home.module.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/mail.module.js"></script>
+
+    <script src="/client/app/app.js"></script>
+
+    <script src="/client/app/auth/auth.route.js"></script>
+
+    <script src="/client/app/auth/auth.svc.js"></script>
+
+    <script src="/client/app/connections/connections.svc.js"></script>
+
+    <script src="/client/app/connections/env.js"></script>
+
+    <script src="/client/app/data/cache.factory.js"></script>
+
+    <script src="/client/app/data/cluster.factory.js"></script>
+
+    <script src="/client/app/core/common.svc.js"></script>
+
+    <script src="/client/app/core/config.js"></script>
+
+    <script src="/client/app/filters/formatPrince.filter.js"></script>
+
+    <script src="/client/app/auth/login/login.controller.js"></script>
+
+    <script src="/client/app/auth/settings/settings.controller.js"></script>
+
+    <script src="/client/app/auth/signup/signup.controller.js"></script>
+
+    <script src="/client/app/blocks/notifications/notification.svc.js"></script>
+
+    <script src="/client/app/blocks/stateManager/stateManager.svc.js"></script>
+
+    <script src="/client/app/components/account/account.svc.js"></script>
+
+    <script src="/client/app/core/directives/compareFields.js"></script>
+
+    <script src="/client/app/layout/content/content.route.js"></script>
+
+    <script src="/client/app/utility/filter/filter.factory.js"></script>
+
+    <script src="/client/app/widgets/date_input/date_input_directive.js"></script>
+
+    <script src="/client/app/widgets/context_menu/contextMenu.js"></script>
+
+    <script src="/client/app/widgets/context_menu/new.js"></script>
+
+    <script src="/client/app/widgets/key_detect/key_detect_directive.js"></script>
+
+    <script src="/client/app/auth/login/modal/login.controller.js"></script>
+
+    <script src="/client/app/components/access/actions/actions.data.js"></script>
+
+    <script src="/client/app/components/access/actions/actions.svc.js"></script>
+
+    <script src="/client/app/components/access/resources/resources.data.js"></script>
+
+    <script src="/client/app/components/access/resources/resources.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/roles.data.js"></script>
+
+    <script src="/client/app/components/access/roles/roles.svc.js"></script>
+
+    <script src="/client/app/components/access/states/states.data.js"></script>
+
+    <script src="/client/app/components/access/states/states.svc.js"></script>
+
+    <script src="/client/app/components/access/users/users.data.js"></script>
+
+    <script src="/client/app/components/access/users/users.svc.js"></script>
+
+    <script src="/client/app/components/account/profile/profile.component.js"></script>
+
+    <script src="/client/app/components/account/profile/profile.ctrl.js"></script>
+
+    <script src="/client/app/components/business/deudas/deudas.data.js"></script>
+
+    <script src="/client/app/components/business/deudas/deudas.svs.js"></script>
+
+    <script src="/client/app/components/business/diario/diario.data.js"></script>
+
+    <script src="/client/app/components/business/diario/diario.svs.js"></script>
+
+    <script src="/client/app/components/business/clients/clients.data.js"></script>
+
+    <script src="/client/app/components/business/clients/clients.svc.js"></script>
+
+    <script src="/client/app/components/business/fast/fast.data.js"></script>
+
+    <script src="/client/app/components/business/fast/fast.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/prodata.data.js"></script>
+
+    <script src="/client/app/components/business/prodata/prodata.svs.js"></script>
+
+    <script src="/client/app/components/business/histore/histore.data.js"></script>
+
+    <script src="/client/app/components/business/histore/histore.svs.js"></script>
+
+    <script src="/client/app/components/business/promo/promo.data.js"></script>
+
+    <script src="/client/app/components/business/promo/promo.svs.js"></script>
+
+    <script src="/client/app/components/catalogues/colors/colors.svc.js"></script>
+
+    <script src="/client/app/components/catalogues/countries/countries.svc.js"></script>
+
+    <script src="/client/app/components/catalogues/units/units.data.js"></script>
+
+    <script src="/client/app/components/catalogues/units/units.svc.js"></script>
+
+    <script src="/client/app/components/account/settings/settings.component.js"></script>
+
+    <script src="/client/app/components/account/settings/settings.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/footer/footer.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/navbar/navbar.svc.js"></script>
+
+    <script src="/client/app/utility/filter/limit/limit.component.js"></script>
+
+    <script src="/client/app/utility/filter/limit/limit.controller.js"></script>
+
+    <script src="/client/app/utility/filter/search/search.component.js"></script>
+
+    <script src="/client/app/utility/filter/search/search.controller.js"></script>
+
+    <script src="/client/app/utility/filter/status/status.component.js"></script>
+
+    <script src="/client/app/utility/filter/status/status.controller.js"></script>
+
+    <script src="/client/app/utility/filter/type/type.component.js"></script>
+
+    <script src="/client/app/utility/filter/type/type.controller.js"></script>
+
+    <script src="/client/app/utility/filter/pagination/pagination.component.js"></script>
+
+    <script src="/client/app/utility/filter/pagination/pagination.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/requests.data.js"></script>
+
+    <script src="/client/app/components/business/requests/requests.svc.js"></script>
+
+    <script src="/client/app/blocks/notifications/templates/default/default.ctrl.js"></script>
+
+    <script src="/client/app/components/access/actions/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/actions/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/actions/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/access/actions/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/resources/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/access/resources/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/actions/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/actions/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/actions/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/actions/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/resources/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/resources/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/resources/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/resources/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/resources/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/access/roles/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/resources/select/select.cache.js"></script>
+
+    <script src="/client/app/components/access/resources/select/select.component.js"></script>
+
+    <script src="/client/app/components/access/resources/select/select.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/select/select.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/roles/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/roles/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/roles/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/select/select.cache.js"></script>
+
+    <script src="/client/app/components/access/roles/select/select.component.js"></script>
+
+    <script src="/client/app/components/access/roles/select/select.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/select/select.svc.js"></script>
+
+    <script src="/client/app/components/access/states/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/states/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/states/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/access/states/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/states/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/states/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/states/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/states/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/users/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/access/users/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/users/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/users/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/users/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/users/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/users/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/users/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/deudas/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/deudas/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/deudas/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/deudas/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/deudas/details/details.component.js"></script>
+
+    <script src="/client/app/components/business/deudas/details/details.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/deb_email/send_email.component.js"></script>
+
+    <script src="/client/app/components/business/clients/deb_email/send_email.controller.js"></script>
+
+    <script src="/client/app/components/business/diario/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/diario/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/diario/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/diario/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/clients/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/business/clients/details/details.svc.js"></script>
+
+    <script src="/client/app/components/business/clients/send_email/send_email.component.js"></script>
+
+    <script src="/client/app/components/business/clients/send_email/send_email.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/clients/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/clients/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/fast/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/fast/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/fast/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/fast/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/canjeo/canjeo.cache.js"></script>
+
+    <script src="/client/app/components/business/prodata/canjeo/canjeo.component.js"></script>
+
+    <script src="/client/app/components/business/prodata/canjeo/canjeo.controller.js"></script>
+
+    <script src="/client/app/components/business/prodata/canjeo/canjeo.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/deuda/deuda.cache.js"></script>
+
+    <script src="/client/app/components/business/prodata/deuda/deuda.component.js"></script>
+
+    <script src="/client/app/components/business/prodata/deuda/deuda.controller.js"></script>
+
+    <script src="/client/app/components/business/prodata/deuda/deuda.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/recarga/recarga.cache.js"></script>
+
+    <script src="/client/app/components/business/prodata/recarga/recarga.component.js"></script>
+
+    <script src="/client/app/components/business/prodata/recarga/recarga.controller.js"></script>
+
+    <script src="/client/app/components/business/prodata/recarga/recarga.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/transferencia/transferencia.cache.js"></script>
+
+    <script src="/client/app/components/business/prodata/transferencia/transferencia.component.js"></script>
+
+    <script src="/client/app/components/business/prodata/transferencia/transferencia.svc.js"></script>
+
+    <script src="/client/app/components/business/prodata/transferencia/trasnferencia.controller.js"></script>
+
+    <script src="/client/app/components/business/prodata/usuarios/usuarios.cache.js"></script>
+
+    <script src="/client/app/components/business/prodata/usuarios/usuarios.component.js"></script>
+
+    <script src="/client/app/components/business/prodata/usuarios/usuarios.controller.js"></script>
+
+    <script src="/client/app/components/business/prodata/usuarios/usuarios.svc.js"></script>
+
+    <script src="/client/app/components/business/histore/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/histore/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/histore/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/histore/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/promo/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/promo/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/promo/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/promo/list/list.svc.js"></script>
+
+    <script src="/client/app/components/catalogues/units/create/create.component.js"></script>
+
+    <script src="/client/app/components/catalogues/units/create/create.controller.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/details.svc.js"></script>
+
+    <script src="/client/app/components/catalogues/units/list/list.cache.js"></script>
+
+    <script src="/client/app/components/catalogues/units/list/list.component.js"></script>
+
+    <script src="/client/app/components/catalogues/units/list/list.controller.js"></script>
+
+    <script src="/client/app/components/catalogues/units/list/list.svc.js"></script>
+
+    <script src="/client/app/components/catalogues/units/select/select.cache.js"></script>
+
+    <script src="/client/app/components/catalogues/units/select/select.component.js"></script>
+
+    <script src="/client/app/components/catalogues/units/select/select.controller.js"></script>
+
+    <script src="/client/app/components/catalogues/units/select/select.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/access.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/access.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/business.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/business.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/account.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/account.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/catalogues.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/catalogues.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/contact_us/contact_us.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/contact_us/contact_us.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/home/home.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/home/home.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/mail.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/mail.route.js"></script>
+
+    <script src="/client/app/components/business/requests/list/list.cache.js"></script>
+
+    <script src="/client/app/components/business/requests/list/list.component.js"></script>
+
+    <script src="/client/app/components/business/requests/list/list.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/list/list.svc.js"></script>
+
+    <script src="/client/app/components/business/requests/details/details.cluster.js"></script>
+
+    <script src="/client/app/components/business/requests/details/details.svc.js"></script>
+
+    <script src="/client/app/components/access/actions/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/access/actions/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/access/actions/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/access/actions/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/actions.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/actions.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/actions.data.js"></script>
+
+    <script src="/client/app/components/access/resources/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/preview/preview.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/preview/preview.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/preview/preview.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/preview/preview.controller.js"></script>
+
+    <script src="/client/app/components/access/states/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/access/states/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/access/states/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/access/states/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/roles.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/roles.data.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/roles.svc.js"></script>
+
+    <script src="/client/app/components/access/users/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/access/users/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/activate/activate.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/activate/activate.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/sons/sons.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/sons/sons.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/edit_admin_options/edit_admin_options.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/edit_admin_options/edit_admin_options.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/view.controller.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/edit/edit.component.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/view/view.component.js"></script>
+
+    <script src="/client/app/components/catalogues/units/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/navbar/navbar.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/actions.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/actions.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/roles.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/roles.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/resources.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/resources.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/users.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/users.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/states.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/states.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/deudas/deudas.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/deudas/deudas.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/clients.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/clients.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/diario/diario.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/diario/diario.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/fast/fast.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/fast/fast.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/navbar/navbar.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/histore/histore.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/histore/histore.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/prodata.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/prodata.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/promo/promo.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/promo/promo.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/requests.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/requests.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/navbar/navbar.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/settings/settings.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/settings/settings.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/profile/profile.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/account/profile/profile.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/navbar/navbar.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/units.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/units.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/send.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/send.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/navbar/navbar.ctrl.js"></script>
+
+    <script src="/client/app/components/business/requests/list/contact/contact.component.js"></script>
+
+    <script src="/client/app/components/business/requests/list/contact/contact.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/details/contact/view.component.js"></script>
+
+    <script src="/client/app/components/business/requests/details/contact/view.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/details/bankAccountActivation/view.component.js"></script>
+
+    <script src="/client/app/components/business/requests/details/bankAccountActivation/view.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/details/pago/view.component.js"></script>
+
+    <script src="/client/app/components/business/requests/details/pago/view.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/details/recharge/view.component.js"></script>
+
+    <script src="/client/app/components/business/requests/details/recharge/view.controller.js"></script>
+
+    <script src="/client/app/components/business/requests/details/withdrawal/view.component.js"></script>
+
+    <script src="/client/app/components/business/requests/details/withdrawal/view.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/resources/details/actions/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/actions.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/actions.data.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/actions.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/states.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/states.data.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/states.svc.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/create/create.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/create/create.controller.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/users/details/roles/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/users/details/edit/changePassword/changePassword.component.js"></script>
+
+    <script src="/client/app/components/access/users/details/edit/changePassword/changePassword.controller.js"></script>
+
+    <script src="/client/app/components/access/users/details/edit/changePassword/identities.svc.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/deudas/deudas.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/deudas/deudas.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/operations/operation.cache.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/operations/operation.component.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/operations/operation.controller.js"></script>
+
+    <script src="/client/app/components/business/clients/details/view/operations/operation.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/list/list.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/deudas/details/details.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/deudas/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/deudas/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/send_email/send_email.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/send_email/send_email.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/diario/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/fast/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/histore/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/canjeo/canjeo.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/deuda/deuda.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/recarga/recarga.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/transferencia/transferencia.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/prodata/usuarios/usuarios.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/promo/mensual/mensual.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/listContact/listContact.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/create/create.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/show.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/show.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/list/list.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/ac.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/ac.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/process/process.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/process/process.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/flash.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/flash.route.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/list.svc.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/list/list.cache.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/list/list.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/list/list.controller.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/states/list/list.svc.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/permissions.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/permissions.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/bankAccountActivation/bankAccountActivation.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/contact/contact.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/pago/pago.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/recharge/recharge.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/withdrawal/withdrawal.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/details/details.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/contact/contact.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/contact/contact.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/create/create.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/AC/create/create.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/contact/contact.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/contact/contact.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/create/create.ctrl.js"></script>
+
+    <script src="/client/app/layout/content/pages/mail/send/flash/create/create.route.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/actions/actions.component.js"></script>
+
+    <script src="/client/app/components/access/roles/details/permissions/actions/list/actions/actions.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/actions/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/actions/actions.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/actions/actions.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/states/states.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/roles/show/permissions/states/states.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/resources/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/users/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/access/states/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/edit_admin_options/edit_admin_options.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/edit_admin_options/edit_admin_options.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/clients/show/details/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/bankAccountActivation/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/bankAccountActivation/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/contact/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/contact/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/pago/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/pago/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/recharge/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/recharge/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/withdrawal/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/business/requests/show/withdrawal/view/view.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/details/edit/edit.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/details/edit/edit.route.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/details/view/view.controller.js"></script>
+
+    <script src="/client/app/layout/content/pages/catalogues/units/show/details/view/view.route.js"></script>
+
+    <!-- endinject -->
+
+    <!-- inject:template:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>

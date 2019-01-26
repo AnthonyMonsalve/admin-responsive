@@ -1,0 +1,17 @@
+<label><input type="checkbox" ng-model="ac.client2.active" ng-change='ac.toggleUserActivation(ac.client2.active)'>Activado</label>
+<label><input type="checkbox" ng-model="ac.client2.blocked" ng-change='ac.toggleUserBlocked(ac.client2.blocked)'>Bloqueado</label>
+<label><input type="checkbox" ng-model="ac.client2.promo" ng-change='ac.toggleUserPromo(ac.client2.promo)'>Promocional</label>
+<label><input type="checkbox" ng-model="ac.client2.admin_options.creditAble" ng-change='ac.toggleUserCreditAble(ac.client2.admin_options.creditAble)'>Inmediata</label>
+<label><input type="checkbox" ng-model="ac.client2.dataFilter" ng-change='ac.toggleFilterActivation(ac.client2.dataFilter)'>Filtro DataExpo</label>
+<label><input type="checkbox" ng-model="ac.client2.simple" ng-change='ac.toggleSimple({"simple":ac.client2.simple,"id":ac.client2._id})'>Simple</label>
+<label><input type="checkbox" ng-model="ac.client2.access" ng-change='ac.toggleAccess({"access":ac.client2.access,"user":ac.client2._id})'>Access</label>
+<label><input type="checkbox" ng-model="ac.client2.socio" ng-change="ac.toggleSocio(ac.client2._id)">Socio</label>
+</br>
+<div style="width: 100%" ng-hide="!ac.client2.socio">
+    <input type="text" style= "width: 20%" ng-model="ac.client2.partner.name" placeholder="Nombre">
+    <input type="text" style="width: 25%" ng-model="ac.client2.partner.location" placeholder="Ubicación">
+    <input type="text" style= "width: 20%" ng-model="ac.client2.partner.img" placeholder="Imagen">
+    <input type="number" style="width: 60px" max="4" min="1" ng-model="ac.client2.partner.gprior" placeholder="Grupo">
+    <input type="number" style="width: 60px" max="4" min="1" ng-model="ac.client2.partner.prior" placeholder="Prioridad">
+    <button type="button" class="button-official blue" style="width: 20%;" ng-click="ac.mandaSocio(ac.client2._id)">¡DALE!</button>
+</div>

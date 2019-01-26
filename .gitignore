@@ -1,0 +1,15 @@
+node_modules
+
+.idea
+
+/build
+
+/ui-admin/client/bower_components
+/ui-admin/.tmp
+/ui-admin/build/*
+
+
+/server/config/local.express.js
+npm-debug.log
+
+/server/business/src/entities/loan/file/folder

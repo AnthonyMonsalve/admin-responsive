@@ -1,0 +1,18 @@
+<div class="title-container" layout="row">
+  <div>
+    <h1 class="sub-header" style="margin-bottom:0px">Actions</h2>
+  </div>
+  <div flex></div>
+  <div class="delete-box" layout="row" layout-align="start end">
+    <div layout="row">
+      <i class="material-icons" ng-click="vm.goTo('list')" style="color:#939393; cursor: pointer; margin-right:10px;">remove_red_eye</i>
+      <i class="material-icons" ng-click="vm.goTo('create')" style="color:#939393; cursor: pointer;">add_circle_outline</i>
+    </div>
+  </div>
+</div>
+
+<resource-details-actions-list-component resource-id="vm.resourceId"
+                                         ng-if="vm.state === 'list'"></resource-details-actions-list-component>
+<resource-details-actions-create-component resource-id="vm.resourceId"
+                                           state="vm.state"
+                                           ng-if="vm.state === 'create'"></resource-details-actions-create-component>

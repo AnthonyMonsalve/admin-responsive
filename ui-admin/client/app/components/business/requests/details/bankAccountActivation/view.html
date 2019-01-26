@@ -1,0 +1,41 @@
+<div class="list-table-container">
+   <div layout="row" layout-align="space-between" layout-wrap>
+    <div class="flat-box" flex>
+      <section class="message">
+        <div layout="row">
+          <h3 class="title bold">Resumen - Activacion de cuenta bancaria</h3>
+          <div flex></div>
+          <div layout="row">
+
+          </div>
+        </div>
+        <div style="margin-top:20px;" layout="row">
+          <div>
+            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Datos bancarios</h3>
+            <p><b>Número de cuenta: </b>{{vm.request.account_number}}</p>
+            <p><b>Tipo de cuenta: </b>{{vm.request.account_type}}</p>
+          </div>
+          <div style="width:100px;"></div>
+          <div>
+            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Datos de contacto</h3>
+            <p><b>Nombre: </b>{{vm.request.user.full_name}}</p>
+            <p><b>Correo: </b>{{vm.request.user.email}}</p>
+            <p><b>Username: </b>{{vm.request.user.username}}</p>
+            <p><b>Teléfono: </b>{{vm.request.user.phone.number}}</p>
+            <p><b>Cedula/RIF: </b>{{vm.request.user.id_document}}</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
+            Marcar como listo
+          </button>
+          <button class="button-official reject small" ng-click="vm.rejectRequest(vm.request)">
+            Rechazar
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</div>

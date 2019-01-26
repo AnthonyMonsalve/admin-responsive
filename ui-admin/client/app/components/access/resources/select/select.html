@@ -1,0 +1,4 @@
+<md-select name="resourcesSelect" id="resourcesSelect" ng-model="vm.model.resourceId" placeholder="Resource">
+  <md-option ng-repeat="option in vm.resources.data track by option._id"
+          value="{{option._id}}">{{option.title}}</md-option>
+</md-select>

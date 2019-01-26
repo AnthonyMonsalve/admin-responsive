@@ -1,0 +1,18 @@
+<div id="catalogues-units">
+  <div class="tool-bar" layout="row" layout-align="start center">
+    <div class="button-container" ui-sref="content.catalogues.units.create" ng-class="{active: vm.$state.current.name.includes('content.catalogues.units.create')}" layout="row" layout-align="start center">
+      <div class="icon-container">
+        <i class="material-icons">add</i>
+      </div>
+      <span>Add</span>
+    </div>
+    <div class="button-container" ui-sref="content.catalogues.units.list" ng-class="{active: vm.$state.current.name.includes('content.catalogues.units.list')}" layout="row" layout-align="start center">
+      <div class="icon-container">
+        <i class="material-icons">remove_red_eye</i>
+      </div>
+      <span>Show</span>
+    </div>
+  </div>
+
+  <div ui-view="" class="padding-view"></div>
+</div>

@@ -1,0 +1,34 @@
+<i class="material-icons" ng-click="vm.refresh()" style="position:absolute; right:25px; top:112px; cursor:pointer;color: #969393;">refresh</i>
+
+<div class="list-table-container small">
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table multiple ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+      <tr md-row>
+        <th name="name" md-column><span>Name</span></th>
+        <th name="title" md-column><span>Title</span></th>
+        <th name="action" md-column><span>Allow</span></th>
+      </tr>
+      </thead>
+      <tbody md-body>
+
+      <tr md-row ng-class="$index % 2 == 0 ? 'even' : 'odd'" ng-repeat="state in vm.states.data">
+        <td md-cell>{{state.name}}</td>
+        <td md-cell>{{state.title}}</td>
+        <td md-cell>
+          <input id="permission"
+                 style="margin-left:16px;"
+                 type="checkbox"
+                 ng-model="vm.roleStatePermissions.data[state.name]"
+                 ng-checked="vm.roleStatePermissions.data[state.name]"
+                 ng-change="vm.togglePermission(vm.roleId,state.name,!vm.roleStatePermissions.data[state.name])"
+                 aria-label="Permission checkbox" />
+
+          <i style="margin-left:5px;" ui-sref="content.access.states.show.details.view({stateId:state._id})" class="material-icons">remove_red_eye</i>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>
+

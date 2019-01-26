@@ -1,0 +1,68 @@
+<form ng-if="!vm.loading" class="form" name="form" ng-submit="vm.submitForm(form)">
+    <div class="md-input" style="margin-top:20px; width: 100%;">
+        <label>
+                <p>Para:</p>
+        </label>
+        <input type="text" ng-disable="true" class="md-input text" style="width: 100%;" ng-model="vm.to" placeholder="Para" required>
+    </div>
+    <div class="md-input" style="margin-top:20px; width: 100%;">
+        <label> 
+                <p>Asunto</p>
+        </label>
+        <input type="text" class="md-input text" style="width: 100%;" ng-model="vm.email.subject" placeholder="Asunto" required>
+    </div>
+    <div class="md-input" style="margin-top:20px; width: 100%;">
+        <label>
+            <p>Mensaje</p>
+        </label>
+        <textarea style="width: 100%" ng-model="vm.email.message" rows=6 placeholder="Mensaje" required></textarea>
+    </div>
+    <div ta-bind ng-model="htmlVariable"></div>
+    <button class="button-official blue" type="submit" style="width: 100%;">Enviar</button>
+</form>
+<md-progress-circular ng-if="vm.loading" style="margin: 0 auto;" md-mode="indeterminate" md-diameter="60">
+</md-progress-circular>
+<div style="font-family : Lato; font-size:18px; color:#050D9E; background-color:#ffff; background-size:auto 13px; max-height: 100vh;min-height:800px; overflow: hidden; margin-top:0px;">
+    <div style="display:block; height: 420px; width:50%; margin:auto; margin-top:-15px; min-width:500px; padding-top:0; position:relative; text-align:center">
+        <div style="margin:auto; width:auto;max-width: 150px; margin-bottom:20px; margin-top:20px;">
+            <a href="app.yeipii.com">
+                <img src="https://app.yeipii.com/assets/images/svg/Logo_YEiPii_Full_Azul-01.png" style="width:auto; margin:auto; max-width:150px;"/>
+            </a>
+        </div>
+        <div style="position:block; top:80; width:100%; box-sizing: border-box;">
+            <div style="width:100%; margin-bottom:20px;">
+                ¡Hola!
+            </div>
+        <div style="width:100%; margin-bottom:20px;">
+            {{vm.email.message}}
+        </div>
+        <div style="width:100%; margin-bottom:150px;">
+            Gracias por utilizar nuestros servicios,
+            <br><br>
+            <b>Equipo YEiPii</b>
+        </div>
+        </div>
+        <div style="position:absolute; padding-top:10px; padding-bottom:10px; bottom:-40px; color:#ffff;background-color:#050D9E; width:100%; text-align: center;">
+            <table style="margin:auto; ">
+            <tr>
+                <td style="width:50px;">
+                    <a href="https://www.instagram.com/yeipiiapp/">
+                        <img src="https://app.yeipii.com/assets/images/svg/instagram.png" width="50px;"/>
+                    </a>
+                </td>
+                <td style="width:50px;">
+                    <a href="https://www.facebook.com/yeipiiapp">
+                        <img src="https://app.yeipii.com/assets/images/svg/facebook.png" width="50px;"/>
+                    </a>
+                </td>
+                <td style="width:50px;">
+                    <a href="https://twitter.com/YEiPiiapp">
+                        <img src="https://app.yeipii.com/assets/images/svg/twitter.png" width="50px"/>
+                    </a>
+                </td>
+            </tr>
+            </table>
+            <a href="www.yeipii.com" style="color:#ffff; text-decoration: none;">www.yeipii.com</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="list-table-container">
+    <md-table-container class="animated fadeIn">
+      <table md-table multiple ng-model="vm.selected">
+        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+          <tr md-row>
+            <th name="email" md-column><span>Email</span></th>
+            <th name="action" md-column></th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row class="white">
+            <td md-cell>{{vm.user.data.email}}</td>
+            <td md-cell>
+              <div layout="row" layout-align="end">
+                <i ui-sref="content.access.users.show.details.edit({userId:vm.user.data._id})" class="material-icons">mode_edit</i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+</div>

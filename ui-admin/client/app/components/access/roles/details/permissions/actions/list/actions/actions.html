@@ -1,0 +1,28 @@
+<div class="list-table-container small">
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table multiple ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="title" md-column><span>Title</span></th>
+          <th name="action" md-column><span>Allow</span></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row ng-class="$index % 2 == 0 ? 'even' : 'odd'" ng-repeat="action in vm.actions">
+          <td md-cell>{{action.title}}</td>
+          <td md-cell>
+            <input id="permission"
+                    style="margin-left:16px;"
+                    type="checkbox"
+                    ng-model="vm.permissions[vm.resourceId + '.' + action.name]"
+                    ng-checked="vm.permissions[vm.resourceId + '.' + action.name]"
+                    ng-change="vm.togglePermission(vm.roleId,vm.resourceId,action.name,!vm.permissions[vm.resourceId + '.' + action.name])"
+                    aria-label="Permission checkbox" />
+
+            <i style="margin-left:5px;" ui-sref="content.access.actions.show.details.view({actionId:action.name,resourceId:vm.resourceId})" class="material-icons">remove_red_eye</i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>

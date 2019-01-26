@@ -1,0 +1,18 @@
+<div id="access-users">
+  <div class="tool-bar" layout="row" layout-align="start center">
+    <div class="button-container" ui-sref="content.access.users.create" ng-class="{active: vm.$state.current.name.includes('content.access.users.create')}" layout="row" layout-align="start center">
+      <div class="icon-container">
+        <i class="material-icons">add</i>
+      </div>
+      <span>Add</span>
+    </div>
+    <div class="button-container" ui-sref="content.access.users.list" ng-class="{active: vm.$state.current.name.includes('content.access.users.list')}" layout="row" layout-align="start center">
+      <div class="icon-container">
+        <i class="material-icons">remove_red_eye</i>
+      </div>
+      <span>Show</span>
+    </div>
+  </div>
+
+  <div ui-view="" style="padding: 15px 20px;"></div>
+</div>

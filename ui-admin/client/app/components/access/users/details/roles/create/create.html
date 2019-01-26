@@ -1,0 +1,30 @@
+<div id="edit-actions" style="margin-top:10px;margin-bottom: 5px" class="paper-form">
+    <div class="form-container animated fadeIn">
+        <form name="createUserRoleForm" ng-submit="vm.createUserRole(createUserRoleForm,vm.userId,vm.userRole.roleId)">
+            <div layout="row" layout-align="space-between">
+              <div layout="column" style="width: 100%; max-width: 400px">
+                  <roles-select-component model="vm.userRole" ></roles-select-component>
+                  <p ng-if="vm.validationErrors.roleId">{{vm.validationErrors.roleId.msg}}</p>
+              </div>
+
+              <div layout="row">
+                <div layout="column" layout-align="center" style="margin-right:10px;">
+                  <i class="material-icons" style="cursor: pointer; color: #969393;">autorenew</i>
+                </div>
+                <div layout="column" layout-align="center" style="margin-right:10px;">
+                  <button type="submit" style="border: 0; background-color: transparent;">
+                    <i class="material-icons" style="cursor: pointer; color: #969393;">add_circle_outline</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div layout="column" ng-if="vm.serverError">
+              <p class="error-label">
+                {{vm.serverError}}
+              </p>
+
+              <button ng-click="vm.serverError = '';">X</button>
+            </div>
+        </form>
+    </div>
+</div>

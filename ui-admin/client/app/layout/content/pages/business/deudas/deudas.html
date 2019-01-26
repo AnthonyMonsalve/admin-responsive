@@ -1,0 +1,18 @@
+<div id="business-borrowers">
+    <div class="tool-bar" layout="row" layout-align="start center">
+      <div class="button-container" ui-sref="content.business.histore.list" ng-class="{active: vm.$state.current.name.includes('content.business.histore.list')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+          <i class="material-icons">remove_red_eye</i>
+        </div>
+        <span>Listar</span>
+      </div>
+      <div class="flat-box" ng-class="{active: vm.$state.current.name.includes('content.business.histore.list')}" layout="row" layout-align="middle center">
+        <div class="icon-container">
+          <i class="material-icons">monetization_on</i>
+        </div>
+        <span>Deuda total: {{vm.deudaTotal}}</span>
+      </div>
+    </div>
+    <div class="TITLE-SECTION"><h1 class="h1">Deudas <i class="material-icons">payment</i></h1></div>
+    <div ui-view="" style="padding: 15px 10px;"></div>
+  </div>

@@ -1,0 +1,48 @@
+<div class="list-table-container">
+    <div layout="row" layout-align="space-between" layout-wrap>
+        <div class="flat-box" flex>
+            <section class="message">
+                <div layout="row">
+                    <h3 class="title bold">Edición del usuario</h3>
+                    <div flex></div>
+                    <div layout="row">
+
+                    </div>
+                </div>
+                <form name="editform" ng-submit="vm.updateClient(editform,vm.clientEdit._id)" novalidate>
+                    <div layout="row">
+                        <div style="margin-top:20px;">
+                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles básicos</h3>
+                            <p><b>Username: </b>{{vm.clientEdit.username}}</p>
+                            <p><b>Nombre completo: </b></p> <input type="text" ng-model="vm.edit.full_name">
+                            <p><b>Correo electrónico: </b></p> <input type="email" ng-model="vm.edit.email">
+                            <p><b>Cédula/RIF: </b></p> <input type="text" ng-model="vm.edit.id_document">
+                            <p><b>Celular: </b></p> <input type="text" ng-model="vm.edit.phone.number">
+                            <p><b>Saldo: </b>{{vm.edit.balance}} Puntos</p>
+                            <p><b>Deuda: </b></p> <input type="text" ng-model="vm.edit.deuda">
+                            <p><client-details-activate-component client-id="vm.clientId"></client-details-activate-component></p>
+                        </div>
+
+                        <div style="width:150px"></div>
+                        <div style="margin-top:20px;">
+                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles de cuenta bancaria</h3>
+                            <p><b>Número de cuenta:</b></p> <input type="text" ng-model="vm.bankEdit.account_number">
+                            <p><b>Tipo de cuenta: </b></p> <select ng-model="vm.bankEdit.account_type">
+                                <option>Corriente</option>
+                                <option>Ahorro</option>
+                            </select>
+                            <p><b>Cuenta verificada: </b>{{vm.bankEdit.active ? 'SI' : 'NO'}}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="button-official blue" style="width: 100%;">GUARDAR CAMBIOS</button>
+                    </div>
+                </form>
+            </section>
+            <section class="message">
+                <client-details-sons-component momail="vm.edit.email" mom="vm.clientEdit.username" ng-if="!!vm.clientEdit.username&&vm.edit.email"></client-details-sons-component>
+            </section>
+        </div>
+    </div>
+
+</div>

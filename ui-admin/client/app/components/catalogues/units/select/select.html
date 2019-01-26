@@ -1,0 +1,5 @@
+SELECT
+<md-select name="unitsSelect" id="unitsSelect" ng-model="vm.model" placeholder="Units">
+  <md-option ng-repeat="option in vm.units.data track by option._id"
+          value="{{option.title}}">{{option.title}}</md-option>
+</md-select>

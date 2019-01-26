@@ -1,0 +1,7 @@
+<md-input-container class="no-margin">
+    <md-select name="quantity" class="small no-border" placeholder="Quantity" ng-model="vm.limit" ng-change="vm.limitSize(vm.limit)">
+        <md-option ng-repeat="quantity in vm.quantities" ng-value="quantity">
+            {{quantity}}
+        </md-option>
+    </md-select>
+</md-input-container>

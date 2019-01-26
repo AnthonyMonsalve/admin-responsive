@@ -1,0 +1,90 @@
+<div id="create-identity" class="paper-form">
+  <div class="title-container" layout="row">
+    <div class="icon-container" style="margin-right:6px;">
+      <i class="material-icons">add</i>
+    </div>
+    <div>
+      <h2>New user</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.users.list">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="createUserForm" ng-submit="vm.createUser(createUserForm,vm.identity)" novalidate>
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <div layout="column" class="form-item input" flex>
+            <input type="text" style="text-transform: capitalize" name="first_name" placeholder="Enter your first name" class="form-control input_official" ng-model="vm.identity.first_name" required>
+            <span class="error-label" layout="row" ng-show="createUserForm.first_name.$dirty && createUserForm.first_name.$error.required">
+              First name must be given
+            </span>
+          </div>
+          <div style="width:25px"></div>
+          <div layout="column" class="form-item input" flex>
+            <input type="text" style="text-transform: capitalize" name="last_name" placeholder="Enter your last name" class="form-control input_official" ng-model="vm.identity.last_name" required>
+            <span class="error-label" layout="row" ng-show="createUserForm.last_name.$dirty && createUserForm.last_name.$error.required">
+              Last name must be given.
+            </span>
+          </div>
+        </div>        
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <div layout="column" class="form-item input" flex>
+            <input type="text" name="email" placeholder="Enter your email" class="form-control input_official" ng-model="vm.identity.email" required>
+            <p ng-if="vm.validationErrors.email">{{vm.validationErrors.email.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createUserForm.email.$dirty && createUserForm.email.$error.required">
+              Email must be given.
+            </span>
+          </div>
+          <div style="width:25px"></div>
+          <div layout="column" class="form-item input" style="margin-top: 0px;" flex>
+              <md-input-container flex>
+                  <label>Country <span style="color:red">*</span></label>
+                  <md-select name="country"
+                             ng-model="vm.identity.country"
+                             required>
+                      <md-option ng-repeat="country in vm.countries" ng-value="country">
+                          {{country}}
+                      </md-option>
+                  </md-select>
+                  <span class="error-label" ng-if="vm.validationErrors.country">{{vm.validationErrors.country.msg}}</span>
+                    <span class="error-label"
+                          layout="row"
+                          ng-show="(vm.submitted || createUserForm.country.$dirty) && createUserForm.country.$error.required">
+                       Country must be given.
+                    </span>
+              </md-input-container>
+          </div>
+        </div>
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <div layout="column" class="form-item input" flex>
+            <input type="password" name="password"  placeholder="Enter a strong password"class="form-control input_official" ng-model="vm.identity.password" required>
+            <p ng-if="vm.validationErrors.password">{{vm.validationErrors.password.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createUserForm.password.$dirty && createUserForm.password.$error.required">
+                Password must be given.
+            </span>
+          </div>
+          <div style="width:25px"></div>
+          <div layout="column" class="form-item input" flex>
+            <input type="password" name="confirm_password" placeholder="Confirm your password" class="form-control input_official" ng-model="vm.password.confirm" required equals="{{vm.identity.password}}">
+            <span class="error-label" layout="row" ng-show="createUserForm.confirm_password.$error.equals">
+                Passwords must be equal
+            </span>
+          </div>
+        </div>
+
+        <div layout="column" ng-if="vm.serverError">
+            <p class="error-label">
+                {{vm.serverError}}
+            </p>
+            <button ng-click="vm.serverError = '';">X</button>
+        </div>
+        <div layout="row" layout-align="end">
+          <button class="button-official blue" type="submit">Create</button>
+        </div>
+    </form>
+  </div>
+
+</div>

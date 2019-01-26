@@ -1,0 +1,76 @@
+<div class="navbar" layout="row">
+  <div layout="row" layout-align="start center">
+    <div class="images-container" layout="column" layout-align="center">
+      <img ng-src="assets/images/logo/YEiPii-inverse.fw.png" />
+    </div>
+    <!--<p class="text-button main"
+       aria-label="Ver inicio"
+       ui-sref="content.home"
+       ng-class="{active: vm.$state.current.name.includes('content.home')}">
+      Home
+    </p>-->
+<!--     <p class="text-button main"
+       aria-label="Ver negocios"
+       ui-sref="content.business"
+       ng-if="vm.currentUser.email != 'sender@activalores.com'"
+       ng-class="{active: vm.$state.current.name.includes('content.business')}">
+      Home
+    </p>
+    <p class="text-button main"
+       aria-label="Ver accesos"
+       ui-sref="content.access"
+       ng-if="vm.currentUser.email != 'sender@activalores.com'"
+       ng-class="{active: vm.$state.current.name.includes('content.access')}">
+      Access
+    </p> -->
+    <!--<p class="text-button main"
+       aria-label="Ver accesos"
+       ui-sref="content.catalogues"
+       ng-class="{active: vm.$state.current.name.includes('content.catalogues')}">
+      Catalogues
+    </p>-->
+<!--     <p class="text-button main"
+       aria-label="Ver accesos"
+       ui-sref="content.mail"
+       ng-if="vm.currentUser.email == 'sender@activalores.com'"
+       ng-class="{active: vm.$state.current.name.includes('content.mail')}">
+      Mail
+    </p>    --> 
+  </div>
+  <div flex></div>
+  <div id="login-box" layout="row" layout-align="start center">
+    <div ng-if="!vm.isLoggedIn()" class="login" layout="row" ui-sref="login">
+      <i id="account" class="material-icons">power_settings_new</i>
+    </div>
+    <div ng-if="vm.isLoggedIn()" class="logout" layout="row" layout-align="start center">
+      <div class="profile-container" layout="row" layout-align="start center" ui-sref="content.account.profile">
+        <p class="text-button logout">{{vm.currentUser.username}}</p>
+        <div class="image-container" layout="column" layout-align="center center">
+          <i class="material-icons">perm_identity</i>
+          <!-- <img ng-src="assets/images/{{}}"> -->
+        </div>
+      </div>
+      <div class="menu-container" >
+        <i id="account" class="material-icons menu-open" ng-click="vm.toggleMenu()">keyboard_arrow_down</i>
+        <div class="hidden-menu" ng-if="vm.currentMenuStatus.status" layout="column" layout-align="center">
+<!--           <div class="option" layout="row" layout-align="start center" ui-sref="content.account.profile">
+            <i class="material-icons">account_box</i>
+            <span>View profile</span>
+          </div>
+          <div class="option" layout="row" layout-align="start center" ui-sref="content.account.settings">
+            <i class="material-icons">settings</i>
+            <span>Account settings</span>
+          </div> -->
+<!--           <div class="option" layout="row" layout-align="start center" ng-click="vm.tokenExpired()">
+            <i class="material-icons">settings</i>
+            <span>Token "expired"</span>
+          </div> -->
+          <div class="option" layout="row" layout-align="start center" style="margin-bottom:0px;" ng-click="vm.logout()">
+            <i class="material-icons" style="font-size:17px">input</i>
+            <span>Logout</span>
+          </div>                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

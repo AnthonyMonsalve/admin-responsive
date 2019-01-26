@@ -1,0 +1,84 @@
+<md-table-container>
+    <table md-table>
+        <thead md-head>
+            <tr md-row>
+                <th name="ref" md-column><span>Referencia</span></th>
+                <th name="type" md-column><span>Tipo</span></th>
+                <th name="amount" md-column><span>Monto transferido</span></th>
+                <th name="amount" md-column><span>Cuota de servicio</span></th>
+                <th name="amount" md-column><span>Monto total</span></th>
+                <th name="sender" md-column><span>Emisor</span></th>
+                <th name="receiver" md-column><span>Receptor</span></th>
+                <th name="createdAt" md-column><span>Fecha</span></th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row ng-repeat="operation in vm.operations.list">
+                <td md-cell>
+                    {{operation.ref}}
+                </td>
+                <td md-cell>
+                    {{operation.trans_type}}
+                </td>
+                <td md-cell>
+                    <div ng-if="operation.positive === true">
+                        <span style="color: green">+ {{operation.amount.toLocaleString('de-DE')}} puntos</span>
+                    </div>
+                    <div ng-if="operation.positive === false">
+                        <span style="color: red">- {{operation.amount.toLocaleString('de-DE')}} puntos</span>
+                    </div>
+                </td>
+                <td md-cell>
+                    <div ng-if="operation.service_fee">
+                        <div ng-if="operation.positive === true">
+                            <span style="color: green">+ {{operation.service_fee.toLocaleString('de-DE')}} puntos</span>
+                        </div>
+                        <div ng-if="operation.positive === false">
+                            <span style="color: red">- {{operation.service_fee.toLocaleString('de-DE')}} puntos</span>
+                        </div>
+                    </div>
+                </td>
+                <td md-cell>
+                    <div ng-if="operation.positive === true">
+                        <span style="color: green">+ {{operation.totalAmount.toLocaleString('de-DE')}} puntos</span>
+                    </div>
+                    <div ng-if="operation.positive === false">
+                        <span style="color: red">- {{operation.totalAmount.toLocaleString('de-DE')}} puntos</span>
+                    </div>
+                </td>
+                <td md-cell>
+                    <span ng-if="operation.sender">{{operation.sender.username}}</span>
+                    <span ng-if="!operation.sender && operation.type==='Transfer'"><i>Usuario Borrado</i></span>
+                </td>
+                <td md-cell>
+                    <span ng-if="operation.receiver">{{operation.receiver.username}}</span>
+                    <span ng-if="!operation.receiver && operation.type==='Transfer'"><i>Usuario Borrado</i></span>
+                </td>
+                <td md-cell>
+                    {{operation.createdAt | date:'dd/MM/yyyy - HH:mm'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</md-table-container>
+<div class="paper-form pagination-files">
+    <div class="form-container" layout="row" layout-align="end">
+        <div ng-if="vm.operation.list.length == 0" layout="column" layout-align="center" style="margin-right:35px;">
+            <p>
+                <i class="material-icons">error_outline</i>
+                <span>No items</span>
+            </p>
+        </div>
+
+        <div class="search-box" layout="column" layout-align="center">
+            <md-progress-circular ng-if="!vm.dataLoaded" md-mode="indeterminate" md-diameter="40"></md-progress-circular>
+        </div>
+        <div flex></div>
+        <div>
+            <filter-limit-component get-list="vm.getOperations()" filter="vm.filter"></filter-limit-component>
+        </div>
+        <div layout="column" layout-align="center">
+            <filter-pagination-component get-list="vm.getOperations()" filter="vm.filter"></filter-pagination-component>
+        </div>
+    </div>
+</div>

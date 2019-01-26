@@ -1,0 +1,65 @@
+<div id="edit-user" class="paper-form">
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.users.show.details.view({userId:vm.user.data._id})">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="editUserForm" ng-submit="vm.updateUser(editUserForm,vm.user.data._id)" novalidate>
+      <div layout="row" layout-align="space-between" layout-wrap>
+        <div layout="column" class="form-item input" flex="50">
+          <input type="text" style="text-transform: capitalize" name="first_name" placeholder="Enter your first name" class="form-control input_official" ng-model="vm.edit.first_name" required>
+          <span class="error-label"
+                layout="row"
+                ng-show="editUserForm.first_name.$dirty && editUserForm.first_name.$error.required">
+            First name must be given
+          </span>
+        </div>
+
+        <div layout="column" class="form-item input" flex="50">
+          <input type="text" style="text-transform: capitalize" name="last_name" placeholder="Enter your last name" class="form-control input_official" ng-model="vm.edit.last_name" required>
+          <span class="error-label" layout="row" ng-show="editUserForm.last_name.$dirty && editUserForm.last_name.$error.required">
+            Last name must be given.
+          </span>
+        </div>
+      </div>  
+
+      <div layout="row" layout-align="space-between" layout-wrap>
+        <div layout="column" class="form-item input" flex="50">
+          <input name="email" class="input_official" placeholder="Email" type="text" ng-model="vm.edit.email">
+          <p ng-if="vm.validationErrors.email">{{vm.validationErrors.email.msg}}</p>
+        </div>
+
+        <div layout="column" class="form-item input" flex="50" style="margin-top:0px;">
+          <md-input-container flex>
+            <label>Country <span style="color:red">*</span></label>
+            <md-select name="country"
+                       ng-model="vm.edit.country"
+                       required>
+              <md-option ng-repeat="country in vm.countries" ng-value="country">
+                {{country}}
+              </md-option>
+            </md-select>
+            <span class="error-label" ng-if="vm.validationErrors.country">{{vm.validationErrors.country.msg}}</span>
+                    <span class="error-label"
+                          layout="row"
+                          ng-show="(vm.submitted || editUserForm.country.$dirty) && editUserForm.country.$error.required">
+                       Country must be given.
+                    </span>
+          </md-input-container>
+        </div>
+      </div>
+
+      <div layout="column" ng-if="vm.serverError">
+        <p class="error-label">
+            {{vm.serverError}}
+        </p>
+
+        <button ng-click="vm.serverError = '';">X</button>
+      </div>
+
+      <div class="button-container" layout="row" layout-align="end">
+        <button type="button" class="button-official" ng-disabled="editUserForm.$pristine" ng-click="vm.reset()">Reset</button>
+        <button type="submit" class="button-official blue">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

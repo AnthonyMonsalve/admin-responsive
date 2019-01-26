@@ -1,0 +1,15 @@
+<div layout="row" style="margin-left:20px;">
+	<div layout="column" layout-align="center" style="margin-right:10px">
+	    <p><span>{{vm.paging.current}} de {{vm.paging.total}}</span></p>
+	</div>
+	<div layout="column" layout-align="center">
+	    <p >
+	        <i class="material-icons"
+	           ng-click="vm.getLeft('previous')"
+	           ng-class="{disabled : (vm.paging.current === 1)}">keyboard_arrow_left</i>
+	        <i class="material-icons"
+	           ng-click="vm.getRight('next')"
+	           ng-class="{disabled : (vm.paging.current === vm.paging.total)}">keyboard_arrow_right</i>
+	    </p>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<md-dialog>
+  <md-dialog-content>
+    <div id="login" layout="row" layout-align="center center">
+      <div class="login-container" layout="column">
+        <div id="error-log" ng-if="form.password.$error.required && form.password.$dirty">
+          <span class="error-label">
+            You must provide a password.
+          </span>
+        </div>
+
+        <div class="form-container">
+            <form name="form" ng-submit="vm.authenticate(form,vm.user.password)" novalidate>
+                <div class="form-group" layout="column" layout-align="start center" style="margin-bottom:10px;">
+                    <div layout="column" layout-align="center" class="icon-input" style="width:100%;">
+                        <i class="material-icons">lock</i>
+                        <input type="password" name="password" class="form-control input_official" placeholder="Password" ng-model="vm.user.password" required>
+                    </div>
+                </div>
+
+                <div class="button-container" ng-if="!vm.submitted" style="margin:0px;" layout="row" layout-align="center" layout-wrap>
+                    <button class="button-official blue" type="submit" flex="100">
+                       <p>Next</p>
+                    </button>
+                    <div ng-if="vm.validationErrors.length > 0" style="text-align:center"> 
+                      <span class="error-label">
+                        {{vm.validationErrors[0].msg}}
+                      </span>
+                    </div>
+                    <p id="register-now">
+                      For any issue, please contact the admin.
+                    </p>
+                </div>
+
+
+                <md-progress-circular ng-if="vm.submitted" md-mode="indeterminate" md-diameter="70" style="margin: 0 auto;">
+                </md-progress-circular>
+            </form>
+        </div>
+      </div>
+    </div>
+  </md-dialog-content>
+</md-dialog>

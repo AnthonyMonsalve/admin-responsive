@@ -1,0 +1,47 @@
+<md-table-container>
+        <table md-table>
+            <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Numero de referencia</span></th>
+                    <th md-column><span>Monto</span></th>
+                    <th md-column><span>Fecha Operación</span></th>
+                    <th md-column><span>Estatus</span></th>
+                    <th md-column><span>Fecha de Pago</span></th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row ng-repeat="pago in vm.opera">
+                    <td md-cell>
+                        {{pago.reference_number}}
+                    </td>
+                    <td md-cell>
+                        {{pago.amount *0.01}}
+                    </td>
+                    <td md-cell>
+                        <div>
+                            {{pago.recharge_date | date:'dd/MM/yyyy'}}
+                        </div>
+                    </td>
+                    <td md-cell>
+                            <div ng-if="pago.approved === true">
+                                <span style="color: green">Cobrado</span>
+                            </div>
+                            <div ng-if="pago.approved === false">
+                                <span style="color: red">Pendiente</span>
+                            </div>
+                    </td>
+                    <td md-cell>
+                        <div ng-if="pago.approved === true">
+                            <span style="color: green">{{pago.updatedAt | date:'dd/MM/yyyy'}}</span>
+                        </div>
+                        <div ng-if="pago.approved === false">
+                            <span style="color: red"> Pendiente</span>
+                        </div>
+                    </td><!-- 
+                    <td md-cell>
+                        <i ng-click="vm.cobrar(deuda._id)" class="material-icons">check_circle</i>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>

@@ -1,0 +1,31 @@
+<div class="list-table-container">
+    <div layout="row" layout-align="space-between" layout-wrap>
+        <div class="flat-box" flex>
+            <section class="message">
+                <div layout="row">
+                    <h3 class="title bold">Resumen - {{vm.getType(vm.request.type)}}</h3>
+                    <div flex></div>
+                    <div layout="row">
+
+                    </div>
+                </div>
+                <div style="margin-top:20px;">
+                    <p ng-if="!!vm.request.user"><b>Usuario: </b>{{vm.request.user.username}}</p>
+                    <p ng-if="!!vm.request.user"><b>Correo: </b>{{vm.request.user.email}}</p>
+                    <p ng-if="!!vm.request.user" ng-show="vm.request.owner.phone"><b>Teléfono: </b>{{vm.request.user.phone.code}}{{vm.request.user.phone.number}}</p>
+                    <p ng-if="!!vm.request.user"><b>CI: </b>{{vm.request.user.id_document}}</p>
+                    <p ng-if="!vm.request.user"><b>Correo: </b>{{vm.request.email}}</p>
+                    <p><b>Asunto: </b>{{vm.request.subject}}</p>
+                    <p><b>Mensaje: </b>{{vm.request.message}}</p>
+                </div>
+                <div>
+                    <button class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
+            Marcar como listo
+          </button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<client-send-email-component to="[vm.request.user.email]"></client-send-email-component>

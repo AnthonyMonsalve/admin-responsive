@@ -1,0 +1,7 @@
+<md-input-container class="no-margin">
+    <md-select name="status" class="small no-border" placeholder="Estado" ng-model="vm.status" ng-change="vm.filterStatus(vm.status)">
+        <md-option ng-repeat="status in vm.statuses" ng-value="status.name">
+            {{status.title}}
+        </md-option>
+    </md-select>
+</md-input-container>

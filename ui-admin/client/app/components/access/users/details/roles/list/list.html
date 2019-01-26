@@ -1,0 +1,23 @@
+<div id="list-roles-preview" class="list-table-container">
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="key" md-column><span>Name</span></th>
+          <th name="action" md-column></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="userRole" ng-class="$index % 2 == 0 ? 'even' : 'odd'" md-select-id="name" md-auto-select ng-repeat="userRole in vm.userRoles.data track by userRole._id">
+          <td md-cell>{{userRole.role.title}}</td>
+          <td md-cell>
+            <div layout="row" layout-align="end">
+              <i ng-if="vm.showDelete" ui-sref="content.access.roles.show.details.view({roleId:userRole.role._id})" style="margin-right:5px;" class="material-icons">remove_red_eye</i>
+              <i ng-if="vm.showDelete" ng-click="vm.deleteUserRole(userRole)" class="material-icons">delete</i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>

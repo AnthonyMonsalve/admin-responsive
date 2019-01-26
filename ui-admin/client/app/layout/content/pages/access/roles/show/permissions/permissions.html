@@ -1,0 +1,18 @@
+<div id="show-details-resources">
+  <div class="title-container" layout="row">
+    <div class="icon-container">
+      <i class="material-icons" style="font-size:48px;">supervisor_account</i>
+    </div>
+    <div>
+      <h2>Permissions</h2>
+    </div>
+    <div flex></div>
+    <div layout="row" layout-align="start center" style="margin-right:38px">
+      <button class="button-official blue" style="margin-top:0px; margin-bottom:0px; padding: 5px 13px; margin-right: 10px;font-size: 14px;" ui-sref="content.access.roles.show.permissions.actions">Actions</button>
+      <button class="button-official blue" style="margin-top:0px; margin-bottom:0px; padding: 5px 13px; font-size: 14px;" ui-sref="content.access.roles.show.permissions.states">States</button>      
+    </div>
+  </div>
+
+  <div ui-view=""></div>
+  <!--<role-details-action-permissions-component role-id="vm.roleId"></role-details-action-permissions-component>-->
+</div>

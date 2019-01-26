@@ -1,0 +1,27 @@
+<div id="list-roles-preview" class="list-table-container" style="margin-bottom:5px;">
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="title" md-column><span>Title</span></th>
+          <th name="description" md-column><span>Description</span></th>
+          <th name="action" md-column>
+          </th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="resourceAction" ng-class="$index % 2 == 0 ? 'even' : 'odd'" md-select-id="resourceAction._id" md-auto-select ng-repeat="resourceAction in vm.resourceActions.data.actions track by resourceAction._id">
+          <td md-cell>{{resourceAction.title}}</td>
+          <td md-cell>{{resourceAction.description}}</td>
+          <td md-cell>
+            <div layout="row" layout-align="end">
+
+              <i ui-sref="content.access.actions.show.details.view({resourceId:vm.resourceId,actionId:resourceAction.name})" style="margin-right:5px;" class="material-icons">remove_red_eye</i>
+              <i ng-click="vm.deleteResourceAction(vm.resourceId,resourceAction._id)" class="material-icons">delete</i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>

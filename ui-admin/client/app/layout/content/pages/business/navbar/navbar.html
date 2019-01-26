@@ -1,0 +1,98 @@
+<div id="business-sidebar" class="main-sidebar">
+	<div class="button-container menu" layout="row" ng-click="vm.toggleStatus()" layout-align="center center">
+		<i class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">menu</i>
+		<i id="close-menu-sidebar" class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">close</i>
+	</div>
+	<div class="opts-menu" ng-if="vm.currentUser.email != 'sender@activalores.com'">
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.requests.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.requests.list')}">
+			<i class="material-icons">assignment_late</i>
+			<p>Solicitudes</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.clients.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.clients')}">
+			<i class="material-icons">face</i>
+			<p>Usuarios</p>
+		</div>
+		<!-- <div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.diario.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.diario')}">
+			<i class="material-icons">trending_up</i>
+			<p>Diario</p>
+		</div> -->
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.prodata.canjeo"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.prodata')}">
+			<i class="material-icons">show_chart</i>
+			<p>Data Expo</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.fast.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.fast')}">
+			<i class="material-icons">account_balance_wallet</i>
+			<p>Recarga Inmediata</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.deudas.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.deudas')}">
+			<i class="material-icons">payment</i>
+			<p>Deudas</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.histore.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.histore')}">
+			<i class="material-icons">history</i>
+			<p>Historial de Solicitudes</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.promo.mensual"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.promo')}">
+			<i class="material-icons">work</i>
+			<p>Promociones</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.requests.contactList"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.requests.contactList')}">
+			<i class="material-icons">headset_mic</i>
+			<p>Contacto</p>
+		</div>
+		<div
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.business.clients.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.business.settings')}">
+			<i class="material-icons">settings</i>
+			<p>Ajustes</p>
+		</div>
+	</div>
+</div>

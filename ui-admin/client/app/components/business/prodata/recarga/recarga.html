@@ -1,0 +1,82 @@
+<div id="list-community-councils" class="list-table-container padding-content">
+        <div class="title-container" layout="row">
+            <div flex></div>
+            <div class="delete-box" layout="row" layout-align="start end">
+                <div layout="row" ng-if="vm.selected.length != 0" ng-click="vm.removeClientsBatch(vm.selected)">
+                    <i class="material-icons">delete</i>
+                    <p>Eliminar ({{vm.selected.length}}) elementos seleccionados.</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="form-horizontal" ng-submit="vm.getClients()">
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: flex-start">
+
+                <div style="width: auto; margin: auto;">
+                    <span class="about-section"><b>Desde</b></span>
+                    <input ng-change="vm.getClients(0)" type="date" name="desde" min="1/1/2017" max="vm.today" class="md-input text" style="width: auto;" ng-model="vm.desde" placeholder="Desde">
+                </div>
+
+                <div style="width: auto; margin: auto;">
+                    <span class="about-section"><b>hasta</b></span>
+                    <input ng-change="vm.getClients(0)" type="date" name="hasta" min="1/1/2017" max="vm.today" class="md-input text" style="width: auto;" ng-model="vm.hasta" placeholder="Hasta">
+                </div>
+                <!-- <div style="width: auto; margin: auto;">
+                    <button type="submit" class="button-official" style="width: auto;" ng-model="vm.filter">Buscar</button>
+                </div> -->
+                <div style="width: auto; margin-left: 10px; margin:auto;">
+                    <button type="button" class="button-official" style="width: auto;" ng-click="vm.graph()">Gráficos</button>
+                </div>
+                <!-- <div style="width: auto; margin-left: 30px;" layout-align='end'>
+                    <p>{{vm.reUsers}} usuarios registrados</p>
+                    <p>{{vm.activeUsers}} usuarios activos</p>
+                    <p>{{vm.nactiveUsers}} usuarios no activos</p>
+                    <p>{{vm.promoUsers}} usuarios promocionales</p>
+                    <p>{{vm.emUsers}} usuarios empleados</p>
+                </div> -->
+            </div>
+        </form>
+        <md-table-container class="hide-icons">
+            <table md-table md-row-select multiple ng-model="vm.selected">
+                <thead md-head>
+                    <tr md-row>
+                        <th ng-repeat="opera in vm.head" md-column><span>{{opera.name}}</span></th>
+                        <th name="action" md-column>
+                            <div layout="row" layout-align="end">
+                                <i class="material-icons" ng-click="vm.getClients(1)" style="cursor:pointer;color: #f6f6f6;">refresh</i>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody md-body ng-if="vm.dataLoaded">
+                    <tr md-row ng-class="$index % 2 == 0 ? 'even' : 'odd'" style="height: 30px!important;" ng-repeat="operas in vm.lista">
+                        <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important">{{operas.dia_s| date:'dd/MM/yyyy'}}</td>
+                        <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important" ng-if="vm.recarga">{{operas.cuenta}}</td>
+                        <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important" ng-if="vm.recarga">{{operas.recargaDia}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+        <div class="paper-form pagination-files">
+            <div class="form-container" layout="row" layout-align="end">
+                <div ng-if="vm.clients.data.length == 0" layout="column" layout-align="center" style="margin-right:35px;">
+                    <p>
+                        <i class="material-icons">error_outline</i>
+                        <span>No items</span>
+                    </p>
+                </div>
+
+                <div class="search-box" layout="column" layout-align="center">
+                    <md-progress-circular ng-if="!vm.dataLoaded" md-mode="indeterminate" md-diameter="40"></md-progress-circular>
+                </div>
+                <div flex></div>
+                <div>
+                    <filter-limit-component get-list="vm.getClients()" filter="vm.filter"></filter-limit-component>
+                </div>
+                <div layout="column" layout-align="center">
+                    <filter-pagination-component get-list="vm.getClients()" filter="vm.filter"></filter-pagination-component>
+                </div>
+            </div>
+        </div>
+
+    </div>

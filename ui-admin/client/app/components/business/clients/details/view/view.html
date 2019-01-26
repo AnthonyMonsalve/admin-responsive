@@ -1,0 +1,65 @@
+<div class="list-table-container">
+    <div layout="column">
+        <div class="flat-box">
+            <section class="message">
+                <div layout="row">
+                    <h3 class="title bold">Resumen del usuario</h3>
+                    <div flex></div>
+                    <div layout="row">
+
+                    </div>
+                </div>
+                <div layout="row">
+                    <div style="margin-top:20px;">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles básicos</h3>
+                        <p><b>Nombre Completo: </b>{{vm.client.full_name}}</p>
+                        <p><b>Username: </b>{{vm.client.username}}</p>
+                        <p><b>Correo electrónico: </b>{{vm.client.email}}</p>
+                        <p><b>Cédula/RIF: </b>{{vm.client.id_document}}</p>
+                        <p><b>Celular: </b>{{vm.client.phone.number}}</p>
+                        <p><b>Saldo: </b>{{vm.client.balance}} Puntos</p>
+                        <p><b>Deuda: </b>{{vm.client.deuda}} Puntos</p>
+                        <!-- <p><b>Saldo antes de la reconversión: </b>{{vm.client2.balance}} Puntos</p> -->
+                    </div>
+                    <div style="width:150px"></div>
+                    <div style="margin-top:20px;">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles de cuenta bancaria</h3>
+                        <p></p>
+                        <p><b>Tipo de cuenta: </b>{{vm.client.bank_accounts[0].account_type}}</p>
+                        <p><b>Cuenta verificada: </b>{{vm.client.bank_accounts[0].active ? 'SI' : 'NO'}}</p>
+                    </div>
+                    <div style="width:150px"></div>
+                    <div style="margin-top:20px; width:auto; min-width:200px">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Acciones</h3>
+                        <p><button class="button-official blue" ui-sref="content.business.clients.show.details.edit" style="width: 100%;">EDITAR CONTACTO</button></p>
+                        <p><button class="button-official blue" ui-sref="content.business.clients.show.details.edit_admin_options" style="width: 100%;">EDITAR OPCIONES ADMINISTRATIVAS</button></p>
+                        <p></p>
+                        <p><button class="button-official blue" ng-click="vm.showdebt()" style="width: 100%;">PAGOS</button></p>
+                    </div>
+                    <div style="width:80px"></div>
+                    </div>
+                </div>
+                <div class="flat-box">
+                    <section class="message">
+                        <div ng-if="vm.showDe" style="display: flex; flex-direction: row; flex-wrap: nowrap;justify-content: start">
+                            <h3 class="title bold">Pagos</h3>
+                            <div flex></div>
+                            <div>Recordar Deuda Pendiente</div> <i ng-click="vm.recordar(vm.client._id)" class="material-icons">email</i>
+                        </div>
+                        <div ng-if="vm.showDe" style="margin-top:20px; overflow:auto; height:auto; max-height:600px">
+                                <client-details-view-deudas-component client-id="vm.clientId"></client-details-view-deudas-component>
+                        </div>
+                        <div ng-if="!vm.showDe">
+                            <h3 class="title bold">Operaciones realizadas</h3>
+                            <div flex></div>
+                        </div>
+                        <div ng-if="!vm.showDe" style="margin-top:20px; overflow:auto; height:auto; max-height:600px">
+                            <client-details-view-operation-component client-id="vm.clientId" username="vm.client.username"></client-details-view-operation-component>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>

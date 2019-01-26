@@ -1,0 +1,47 @@
+<div id="acces-sidebar" class="main-sidebar">
+	<div class="button-container menu" layout="row" ng-click="vm.toggleStatus()" layout-align="center center">
+		<i class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">menu</i>
+	</div>
+	<div class="opts-menu">
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.access.users.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.access.users')}">
+			<i class="material-icons">perm_identity</i>
+			<p>Users</p>
+		</div>
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.access.roles.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.access.roles')}">
+			<i class="material-icons">accessibility</i>
+			<p>Roles</p>
+		</div>
+		<!--<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.access.resources.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.access.resources')}">
+			<i class="material-icons">perm_media</i>
+			<p>Resources</p>
+		</div>
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.access.actions.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.access.actions')}">
+			<i class="material-icons">supervisor_account</i>
+			<p>Actions</p>
+		</div>
+		<div class="button-container last"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.access.states.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.access.states')}">
+			<i class="material-icons">subject</i>
+			<p>States</p>
+		</div>-->
+	</div>
+</div>

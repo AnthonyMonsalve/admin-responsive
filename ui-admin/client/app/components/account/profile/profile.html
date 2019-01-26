@@ -1,0 +1,101 @@
+<div id="account-profile">
+  <div class="title-container" layout="row">
+    <div class="icon-container">
+      <i class="material-icons">check</i>
+    </div>
+    <div>
+      <h2>About you</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+  <div layout="row" layout-align="space-between" layout-wrap>
+    <div class="flat-box" flex>
+
+      <section class="message">
+        <div layout="row">
+          <h3 class="title bold">Basic information</h3>
+          <div flex></div>
+          <div>
+            <i class="material-icons action"
+                ui-sref="content.account.settings">
+                mode_edit
+            </i>
+          </div>
+        </div>
+        <p class="content">This are the details of your last connection:</p>
+        <div class="box-data">
+          <div layout="row">
+            <div class="left-side">
+              <span>Name:</span>
+            </div>
+            <span style="text-transform: capitalize">{{vm.user.first_name}} {{vm.user.last_name}}</span>
+          </div>
+          <div layout="row">
+            <div class="left-side">
+              <span>Email:</span>
+            </div>
+            <span>{{vm.user.email}}</span>
+          </div>
+          <div layout="row" >
+            <div class="left-side">
+              <span>Country:</span>
+            </div>
+            <span style="text-transform: capitalize">{{vm.user.state}}, {{vm.user.country}}.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="width:15px;"></div>
+
+    <div class="flat-box" flex>
+
+<!--       <section class="message" >
+        <div layout="row">
+          <h3 class="title bold">Session details</h3>
+          <div flex></div>
+          <div>
+            <i ng-click="vm.notify()" class="material-icons action">
+                more_horiz
+            </i>
+          </div>
+        </div>
+        <p class="content">This are the details of your last connection:</p>
+        <div class="box-data"> 
+            <div layout="row">
+              <div class="left-side">
+                <span>OS:</span>
+              </div>
+              <i class="fa fa-linux" aria-hidden="true"></i> <span>Ubuntu, Linux.</span>
+            </div>
+            <div layout="row">
+              <div class="left-side">
+                <span>Date:</span>
+              </div>
+              <span>22 de enero, 8:32</span>
+            </div>
+            <div layout="row">
+              <div class="left-side">
+                <span>Source:</span>
+              </div>
+              <span>Caracas, Distrito Capital, Venezuela.</span>
+            </div>
+            <div layout="row">
+              <div class="left-side">
+                <span>Browser:</span>
+              </div>
+               <i class="fa fa-chrome" aria-hidden="true"></i><span>Chrome 57.8.2</span>
+            </div>
+            <div layout="row">
+              <div class="left-side">
+                <span>IP Address:</span>
+              </div>
+              <span>186.188.19.224</span>
+            </div>
+        </div>
+      </section>
+ -->
+    </div>    
+  </div>
+</div>

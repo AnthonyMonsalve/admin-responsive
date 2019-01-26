@@ -1,0 +1,40 @@
+<div id="business-borrowers">
+<div class="tool-bar" layout="row" layout-align="start center">
+    <div class="button-container" ng-click="vm.refresh()" ui-sref="content.business.prodata.recarga" ng-class="{active: vm.$state.current.name.includes('content.business.prodata.recarga')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+            <i class="material-icons">input</i>
+        </div>
+        <span>Recarga</span>
+    </div>
+
+    <div class="button-container" ng-click="vm.refresh()" ui-sref="content.business.prodata.canjeo" ng-class="{active: vm.$state.current.name.includes('content.business.prodata.canjeo')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+            <i class="material-icons">exit_to_app</i>
+        </div>
+        <span>Canjeo</span>
+    </div>
+
+    <div class="button-container" ng-click="vm.refresh()" ui-sref="content.business.prodata.deuda" ng-class="{active: vm.$state.current.name.includes('content.business.prodata.deuda')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+            <i class="material-icons">card_travel</i>
+        </div>
+        <span>Deuda</span>
+    </div>
+
+    <div class="button-container" ui-sref="content.business.prodata.transferencia" ng-class="{active: vm.$state.current.name.includes('content.business.prodata.transferencia')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+            <i class="material-icons">compare_arrows</i>
+        </div>
+        <span>Transferencia</span>
+    </div>
+
+    <div class="button-container" ng-click="vm.refresh()" ui-sref="content.business.prodata.usuarios" ng-class="{active: vm.$state.current.name.includes('content.business.prodata.usuarios')}" layout="row" layout-align="start center">
+        <div class="icon-container">
+            <i class="material-icons">account_box</i>
+        </div>
+        <span>Usuarios</span>
+    </div>
+</div>
+<div class="TITLE-SECTION"><h1 class="h1">Data expo <i class="material-icons">show_chart</i></h1></div>
+<div ui-view="" style="padding: 15px 10px;"></div>
+</div>

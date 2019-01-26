@@ -1,0 +1,86 @@
+<div id="edit-create-actions" class="paper-form">
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.resources.show.details.view({resourceId:vm.resourceId})">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="createResourceActionForm" ng-submit="vm.createResourceAction(createResourceActionForm,vm.resourceAction,vm.resourceId)" novalidate>
+      <div layout="row" layout-align="space-between" layout-wrap>
+        <div layout="column" class="form-item input" flex="100">
+          <input name="title" placeholder="Enter an action title" class="input_official" type="text" ng-model="vm.resourceAction.title" required>
+          <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+          <span class="error-label" layout="row" ng-show="createResourceActionForm.title.$dirty && createResourceActionForm.title.$error.required">
+              Title must be given.
+          </span>
+        </div>
+      </div>
+
+      <div layout="column" class="form-item">
+        <textarea name="description" placeholder="Enter an action description" class="textarea_official" ng-model="vm.resourceAction.description" required></textarea>
+        <p ng-if="vm.validationErrors.description">{{vm.validationErrors.description.msg}}</p>
+        <span class="error-label" layout="row" ng-show="createResourceActionForm.description.$dirty && createResourceActionForm.description.$error.required">
+            Description must be given.
+        </span>
+      </div>
+
+      <div layout="column" ng-if="vm.serverError">
+        <p class="error-label">
+            {{vm.serverError}}
+        </p>
+
+        <button ng-click="vm.serverError = '';">X</button>
+      </div>
+
+      <div class="button-container" layout="row" layout-align="end">
+        <button type="button" class="button-official" ng-disabled="createResourceActionForm.$pristine" ng-click="vm.reset()">Reset</button>
+        <button type="submit" class="button-official blue">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div>
+    <form name="createResourceActionForm" ng-submit="vm.createResourceAction(createResourceActionForm,vm.resourceAction,vm.resourceId)">
+        <div layout="column">
+            <label>Nombre</label>
+            <input name="name" type="text" ng-model="vm.resourceAction.name" required>
+            <p ng-if="vm.validationErrors.name">{{vm.validationErrors.name.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createResourceActionForm.name.$dirty && createResourceActionForm.name.$error.required">
+                Name must be given.
+            </span>
+        </div>
+
+        <div layout="column">
+            <label>Titulo</label>
+            <input name="title" type="text" ng-model="vm.resourceAction.title" required>
+            <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createResourceActionForm.title.$dirty && createResourceActionForm.title.$error.required">
+                Title must be given.
+            </span>
+        </div>
+
+        <div layout="column">
+            <label>Descripcion</label>
+            <textarea name="description" ng-model="vm.resourceAction.description" required></textarea>
+            <p ng-if="vm.validationErrors.description">{{vm.validationErrors.description.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createResourceActionForm.description.$dirty && createResourceActionForm.description.$error.required">
+                Description must be given.
+            </span>
+        </div>
+        <div layout="column" ng-if="vm.serverError">
+            <p class="error-label">
+                {{vm.serverError}}
+            </p>
+
+            <button ng-click="vm.serverError = '';">X</button>
+        </div>
+
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div> -->

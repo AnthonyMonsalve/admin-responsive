@@ -1,0 +1,49 @@
+<div id="login" layout="row" layout-align="center center">
+  <img src="https://www.yeipii.com/images/logo/YEiPii%20Logo%20Recuadro%20Azul1.png" alt="YEiPii" style="width: 65px; position: relative; top: -75px;">
+  <div ng-if="!vm.submitted" class="login-container" layout="column">
+    <div id="error-log" ng-if="form.email.$error.email">
+      <span class="error-label">
+        A correctly email address must be given.
+      </span>
+    </div>
+    <div id="error-log" ng-if="form.email.$error.required && form.password.$dirty">
+      <span class="error-label">
+        You must provide an email.
+      </span>
+    </div>
+    <div id="error-log" ng-if="vm.error">
+      <span class="error-label">
+        {{vm.error}}
+      </span>
+    </div>
+
+    <div class="form-container" >
+        <form name="form" ng-submit="vm.login(form)" novalidate>
+            <div class="form-group" layout="column" layout-align="start center" style="margin-bottom:10px;">
+              <!-- <div class="image-container">
+                <img ng-src="assets/images/logo/logo.svg">
+              </div> -->
+                <div layout="column" layout-align="center" class="icon-input" style="width:100%; margin-bottom:10px;">
+                    <i class="material-icons">account_circle</i>
+                    <input type="text" name="username" class="form-control input_official" placeholder="Nombre de usuario" ng-model="vm.user.username" required>
+                </div>
+                <div layout="column" layout-align="center" class="icon-input" style="width:100%;">
+                    <i class="material-icons">lock</i>
+                    <input type="password" name="password" class="form-control input_official" placeholder="Contraseña" ng-model="vm.user.password" required>
+                </div>
+            </div>
+
+            <div class="button-container" style="margin:0px;" layout="row" layout-align="center" layout-wrap>
+                <button class="button-official blue" type="submit" flex="100">
+                   <p>ACCEDER</p>
+                </button>
+                <p id="register-now">
+                  Cualquier inconveniente, póngase en contacto con el administrador.
+                </p>
+            </div>
+
+        </form>
+    </div>
+  </div>
+  <md-progress-circular ng-if="vm.submitted" md-mode="indeterminate" md-diameter="100"></md-progress-circular>
+</div>

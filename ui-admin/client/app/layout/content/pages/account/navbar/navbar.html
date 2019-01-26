@@ -1,0 +1,15 @@
+<div id="acces-sidebar" class="main-sidebar">
+	<div class="button-container menu" layout="row" ng-click="vm.toggleStatus()" layout-align="center center">
+		<i class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">menu</i>
+	</div>
+	<div class="opts-menu">
+		<div class="button-container" layout="row" layout-align="start" ui-sref="content.account.profile" ng-class="{active: vm.$state.current.name.includes('content.account.profile')}">
+			<i class="material-icons">account_box</i>
+			<p>View profile</p>
+		</div>
+		<div class="button-container" layout="row" layout-align="start" ui-sref="content.account.settings" ng-class="{active: vm.$state.current.name.includes('content.account.settings')}">
+			<i class="material-icons">settings</i>
+			<p>Acccount settings</p>
+		</div>
+	</div>
+</div>

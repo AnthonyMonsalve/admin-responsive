@@ -1,0 +1,46 @@
+<div id="edit-actions" class="paper-form">
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.roles.show.details.view({roleId:vm.role.data._id})">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="editRoleForm" ng-submit="vm.updateRole(editRoleForm,vm.role.data._id)" novalidate>
+      <div layout="row" layout-align="space-between" layout-wrap>
+        <!--<div layout="column" class="form-item input" flex="50">
+          <input name="name" class="input_official" type="text" ng-model="vm.edit.name" required>
+          <p ng-if="vm.validationErrors.name">{{vm.validationErrors.name.msg}}</p>
+          <span class="error-label" layout="row" ng-show="editRoleForm.name.$dirty && editRoleForm.name.$error.required">
+              Name must be given.
+          </span>
+        </div>-->
+        <div layout="column" class="form-item input" flex="100">
+          <input name="title" class="input_official" type="text" ng-model="vm.edit.title" required>
+          <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+          <span class="error-label" layout="row" ng-show="editRoleForm.title.$dirty && editRoleForm.title.$error.required">
+              Title must be given.
+          </span>
+        </div>
+      </div>
+
+      <div layout="column" class="form-item">
+        <textarea name="description" class="textarea_official" ng-model="vm.edit.description" required></textarea>
+        <p ng-if="vm.validationErrors.description">{{vm.validationErrors.description.msg}}</p>
+        <span class="error-label" layout="row" ng-show="editRoleForm.description.$dirty && editRoleForm.description.$error.required">
+            Description must be given.
+        </span>
+      </div>
+
+      <div layout="column" ng-if="vm.serverError">
+        <p class="error-label">
+            {{vm.serverError}}
+        </p>
+
+        <button ng-click="vm.serverError = '';">X</button>
+      </div>
+
+      <div class="button-container" layout="row" layout-align="end">
+        <button type="button" class="button-official" ng-disabled="editRoleForm.$pristine" ng-click="vm.reset()">Reset</button>
+        <button type="submit" class="button-official blue">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

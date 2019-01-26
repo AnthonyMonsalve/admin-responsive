@@ -1,0 +1,45 @@
+<div id="create-unit" class="paper-form">
+  <div class="title-container" layout="row">
+    <div class="icon-container" style="margin-right:6px;">
+      <i class="material-icons">add</i>
+    </div>
+    <div>
+      <h2>New unit</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.units.list">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="createUnitForm" ng-submit="vm.createUnit(createUnitForm,vm.unit)" novalidate>
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <div layout="column" class="form-item input" flex="100">
+            <input name="title" type="text" placeholder="Enter a title" ng-model="vm.unit.title" class="form-control input_official" required>
+            <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createUnitForm.title.$dirty && createUnitForm.title.$error.required">
+                Title must be given.
+            </span>
+          </div>
+        </div>
+
+        <div layout="column" ng-if="vm.validationErrors.other">
+            <p class="error-label">{{vm.validationErrors.other.msg}}</p>
+        </div>
+
+        <div layout="column" ng-if="vm.serverError">
+            <p class="error-label">
+                {{vm.serverError}}
+            </p>
+            <button ng-click="vm.serverError = '';">X</button>
+        </div>
+
+        <div layout="row" layout-align="end">
+          <button class="button-official blue" type="submit">Create</button>
+        </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div id="list-roles" class="list-table-container">
+  <div class="title-container" layout="row">
+    <div class="icon-container">
+      <i class="material-icons">accessibility</i>
+    </div>
+    <div>
+      <h2>Roles</h2>
+    </div>
+    <div flex></div>
+    <div class="delete-box" layout="row" layout-align="start end">
+      <div layout="row" ng-if="vm.selected.length != 0" ng-click="vm.removeRolesBatch(vm.selected)">
+        <i class="material-icons">delete</i>
+        <p>Delete selected elements ({{vm.selected.length}})</p>
+      </div>
+    </div>
+  </div>
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table md-row-select multiple ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="title" md-column><span>Title</span></th>
+          <th name="description" md-column><span>Description</span></th>
+          <th name="action" md-column></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="role._id" ng-class="$index % 2 == 0 ? 'even' : 'odd'" md-select-id="role._id" ng-repeat="role in vm.roles.data">
+          <td md-cell>{{role.title}}</td>
+          <td md-cell>{{role.description}}</td>
+          <td md-cell>
+            <div layout="row" layout-align="end">
+              <i ui-sref="content.access.roles.show.details.view({roleId:role._id})" class="material-icons">remove_red_eye</i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>

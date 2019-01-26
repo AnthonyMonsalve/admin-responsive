@@ -1,0 +1,63 @@
+<div id="create-actions" class="paper-form">
+  <div class="title-container" layout="row">
+    <div class="icon-container" style="margin-right:6px;">
+      <i class="material-icons">add</i>
+    </div>
+    <div>
+      <h2>New action</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.actions.list">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="createActionForm" ng-submit="vm.createAction(createActionForm,vm.action)" novalidate>
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <!--<div layout="column" class="form-item input" flex="50">
+              <input name="name" class="input_official" placeholder="Name" type="text" ng-model="vm.action.name" required>
+              <p ng-if="vm.validationErrors.name">{{vm.validationErrors.name.msg}}</p>
+              <span class="error-label" layout="row" ng-show="createActionForm.name.$dirty && createActionForm.name.$error.required">
+                  Name must be given.
+              </span>
+          </div>-->
+          <div layout="column" class="form-item input" flex="100">
+            <input name="title" class="input_official" placeholder="Title" type="text" ng-model="vm.action.title" required>
+            <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createActionForm.title.$dirty && createActionForm.title.$error.required">
+              Title must be given.
+            </span>
+          </div>
+          <div layout="column" class="form-item" layout-align="end" flex="100">
+            <resources-select-component model="vm.action"></resources-select-component>
+            <p ng-if="vm.validationErrors.resourceId">{{vm.validationErrors.resourceId.msg}}</p>
+          </div>
+        </div>
+
+        <div layout="column" class="form-item">
+            <textarea name="description" class="textarea_official" placeholder="Description" ng-model="vm.action.description" required></textarea>
+            <p ng-if="vm.validationErrors.description">{{vm.validationErrors.description.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createActionForm.description.$dirty && createActionForm.description.$error.required">
+                Description must be given.
+            </span>
+        </div>
+
+        <div layout="column" ng-if="vm.validationErrors.other">
+            <p class="error-label">{{vm.validationErrors.other.msg}}</p>
+        </div>
+
+        <div layout="column" ng-if="vm.serverError">
+            <p class="error-label">
+                {{vm.serverError}}
+            </p>
+            <button ng-click="vm.serverError = '';">X</button>
+        </div>
+        <div layout="row" layout-align="end">
+          <button class="button-official blue" type="submit">Create</button>
+        </div>
+    </form>
+  </div>
+
+</div>

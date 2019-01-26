@@ -1,0 +1,25 @@
+<div id="preview-resources" class="list-table-container">
+  <h1 class="sub-header">Resource preview</h1>
+
+  <md-table-container class="animated fadeIn">
+    <table md-table multiple ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="title" md-column><span>Title</span></th>
+          <th name="description" md-column><span>Description</span></th>
+          <th name="action" md-column></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row class="white" md-select-id="name" md-auto-select>
+          <td md-cell>{{vm.resource.data.title}}</td>
+          <td md-cell>{{vm.resource.data.description}}</td>
+          <td md-cell>
+            <i ui-sref="content.access.resources.show.details.view({resourceId:vm.resource.data._id})" class="material-icons">arrow_forward</i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+
+</div>

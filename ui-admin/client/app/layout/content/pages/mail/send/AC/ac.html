@@ -1,0 +1,18 @@
+<div class="tool-bar" layout="row" layout-align="start center">
+	<div class="button-container" ui-sref="content.mail.send.ac.create" ng-class="{active: vm.$state.current.name.includes('content.mail.send.ac.create')}" layout="row" layout-align="start center">
+		<div class="icon-container">
+			<i class="material-icons">edit</i>
+		</div>
+		<span>Details</span>
+	</div>
+	<div class="button-container" ui-sref="content.mail.send.ac.contact({contactList: '59277ab0e6002a003f5aaf84'})" ng-class="{active: vm.$state.current.name.includes('content.mail.send.ac.contact')}" layout="row" layout-align="start center">
+		<div class="icon-container">
+			<i class="material-icons">details</i>
+		</div>
+		<span>Contacts</span>
+	</div>
+</div>
+
+<div id="mail-send-ac" class="padding-view">
+  <div ui-view=""></div>
+</div>

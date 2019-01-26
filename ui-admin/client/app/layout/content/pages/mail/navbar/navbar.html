@@ -1,0 +1,28 @@
+<div id="catalogues-sidebar" class="main-sidebar">
+	<div class="button-container menu" layout="row" ng-click="vm.toggleStatus()" layout-align="center center">
+		<i class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">menu</i>
+	</div>
+	<div class="opts-menu">
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.mail.send.ac.create({type:'Apertura'})">
+			<i class="material-icons">mail</i>
+			<p>Apertura</p>
+		</div>
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.mail.send.ac.create({type:'Cierre'})">
+			<i class="material-icons">mail</i>
+			<p>Cierre</p>
+		</div>		
+		<div class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.mail.send.flash.create">
+			<i class="material-icons">mail</i>
+			<p>Flash Mercado</p>
+		</div>		
+	</div>
+</div>

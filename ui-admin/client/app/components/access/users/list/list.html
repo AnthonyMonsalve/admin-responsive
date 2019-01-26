@@ -1,0 +1,38 @@
+<div id="list-users" class="list-table-container">
+  <div class="title-container" layout="row">
+    <div class="icon-container">
+      <i class="material-icons">perm_identity</i>
+    </div>
+    <div>
+      <h2>Users</h2>
+    </div>
+    <div flex></div>
+    <div class="delete-box" layout="row" layout-align="start end">
+      <div layout="row" ng-if="vm.selected.length != 0" ng-click="vm.deleteUsersBatch(vm.selected)">
+        <i class="material-icons">delete</i>
+        <p>Delete selected elements ({{vm.selected.length}})</p>
+      </div>
+    </div>
+  </div>
+  <md-table-container class="animated fadeIn hide-icons">
+    <table md-table md-row-select multiple ng-model="vm.selected">
+      <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+        <tr md-row>
+          <th name="email" md-column><span>Email</span></th>
+          <th name="action" md-column></th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row md-select="user._id" ng-class="$index % 2 == 0 ? 'even' : 'odd'" md-select-id="user._id" ng-repeat="user in vm.users.data">
+          <td md-cell>{{user.email}}</td>
+          <td md-cell>
+            <div layout="row" layout-align="end">
+              <i ui-sref="content.access.users.show.details.view({userId: user._id})" class="material-icons">remove_red_eye</i>
+              <i ui-sref="content.access.users.show.details.edit({userId: user._id})" style="margin-left:7px;" class="material-icons">edit</i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+</div>

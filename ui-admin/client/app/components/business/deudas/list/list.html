@@ -1,0 +1,63 @@
+<div id="list-community-councils" class="list-table-container padding-content">
+    <div class="title-container" layout="row">
+        <div flex></div>
+        <div class="delete-box" layout="row" layout-align="start end">
+            <div layout="row" ng-if="vm.selected.length != 0" ng-click="vm.removeClientsBatch(vm.selected)">
+                <i class="material-icons">delete</i>
+                <p>Eliminar ({{vm.selected.length}}) elementos seleccionados.</p>
+            </div>
+        </div>
+    </div>
+    <md-table-container class="hide-icons">
+        <table md-table md-row-select multiple ng-model="vm.selected">
+            <thead md-head>
+                <tr md-row>
+                    <th name="fecha" md-column ng-click="vm.sortBy('createdAt')"><span>Fecha</span></th>
+                    <th name="Tipo" md-column ng-click="vm.sortBy('username')"><span>Cliente</span></th>
+                    <th name="solicitante" md-column ng-click="vm.sortBy('amount')"><span>Monto</span></th>
+                    <th name="solicitante" md-column ><span>Atraso</span></th>
+                    <th name="action" md-column>
+                        <div layout="row" layout-align="end">
+                            <i class="material-icons" ng-click="vm.getClients(true)" style="cursor:pointer;color: #f6f6f6;">refresh</i>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody md-body ng-if="vm.dataLoaded">
+                <tr md-row ng-class="$index % 2 == 0 ? 'even' : 'odd'" style="height: 30px!important;" ng-repeat="client in vm.clients">
+                    <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important">{{client.createdAt | date:'dd/MM/yyyy'}}</td>
+                    <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important">{{client.username}}</td>
+                    <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important">{{client.deuda}}</td>
+                    <td md-cell style="padding-bottom: 0px!important; padding-top: 0px!important">{{client.atraso}}</td>
+                    <td md-cell>
+                        <div layout="row" layout-align="end">
+                            <i ng-click="vm.goToDetails(client._id)" class="material-icons">remove_red_eye</i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <div class="paper-form pagination-files">
+        <div class="form-container" layout="row" layout-align="end">
+            <div ng-if="vm.clients.data.length == 0" layout="column" layout-align="center" style="margin-right:35px;">
+                <p>
+                    <i class="material-icons">error_outline</i>
+                    <span>No items</span>
+                </p>
+            </div>
+
+            <div class="search-box" layout="column" layout-align="center">
+                <md-progress-circular ng-if="!vm.dataLoaded" md-mode="indeterminate" md-diameter="40"></md-progress-circular>
+            </div>
+            <div flex></div>
+            <div>
+                <filter-limit-component get-list="vm.getClients(true)" filter="vm.filter"></filter-limit-component>
+            </div>
+            <div layout="column" layout-align="center">
+                <filter-pagination-component get-list="vm.getClients(true)" filter="vm.filter"></filter-pagination-component>
+            </div>
+        </div>
+    </div>
+
+</div>

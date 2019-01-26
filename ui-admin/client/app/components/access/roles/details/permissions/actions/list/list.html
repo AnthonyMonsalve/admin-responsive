@@ -1,0 +1,29 @@
+<i class="material-icons" ng-click="vm.refresh()" style="position:absolute; right:25px; top:112px; cursor:pointer;color: #969393;">refresh</i>
+
+<div layout="row" layout-align="space-between" layout-wrap>
+  <div class="flat-box" ng-repeat="resource in vm.resources.data" flex="45">
+    <div class="message">
+      <div layout="row">
+        <h3 class="title">{{resource.title}}</h3>
+        <div flex></div>
+        <div>
+          <i class="material-icons action"
+              ui-sref="content.access.resources.show.details.view({resourceId:resource._id})">
+              remove_red_eye
+          </i>
+        </div>
+      </div>
+
+      <section>
+        <p class="content">{{resource.description}}</p>
+      </section>
+
+      <role-details-action-permissions-list-actions-component actions="resource.actions"
+                                                       resource-id="resource._id"
+                                                       role-id="vm.roleId"
+                                                       permissions="vm.roleActionPermissions.data">
+      </role-details-action-permissions-list-actions-component>    
+    </div>
+
+  </div>
+</div>

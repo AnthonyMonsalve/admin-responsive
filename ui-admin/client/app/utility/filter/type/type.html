@@ -1,0 +1,7 @@
+<md-input-container class="no-margin">
+    <md-select name="type" class="small no-border" placeholder="Tipo" ng-model="vm.type" ng-change="vm.filterType(vm.type)">
+        <md-option ng-repeat="type in vm.types" ng-value="type.name">
+            {{type.title}}
+        </md-option>
+    </md-select>
+</md-input-container>

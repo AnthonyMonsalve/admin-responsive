@@ -1,0 +1,59 @@
+<div id="create-states" class="paper-form">
+  <div class="title-container" layout="row">
+    <div class="icon-container" style="margin-right:6px;">
+      <i class="material-icons">add</i>
+    </div>
+    <div>
+      <h2>New state</h2>
+    </div>
+    <div flex></div>
+    <div></div>
+  </div>
+
+  <div class="form-container animated fadeIn">
+    <div class="button-container close" layout="row" layout-align="end" ui-sref="content.access.states.list">
+      <i class="material-icons">close</i>
+    </div>
+    <form name="createStateForm" ng-submit="vm.createState(createStateForm,vm.state)" novalidate>
+        <div layout="row" layout-align="space-between" layout-wrap>
+          <div layout="column" class="form-item input" flex="50">
+              <input name="name" class="input_official" placeholder="Name" type="text" ng-model="vm.state.name" required>
+              <p ng-if="vm.validationErrors.name">{{vm.validationErrors.name.msg}}</p>
+              <span class="error-label" layout="row" ng-show="createStateForm.name.$dirty && createStateForm.name.$error.required">
+                  Name must be given.
+              </span>
+          </div>
+          <div layout="column" class="form-item input" flex="50">
+            <input name="title" class="input_official" placeholder="Title" type="text" ng-model="vm.state.title" required>
+            <p ng-if="vm.validationErrors.title">{{vm.validationErrors.title.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createStateForm.title.$dirty && createStateForm.title.$error.required">
+              Title must be given.
+            </span>
+          </div>
+        </div>
+
+        <div layout="column" class="form-item">
+            <textarea name="description" class="textarea_official" placeholder="Description" ng-model="vm.state.description" required></textarea>
+            <p ng-if="vm.validationErrors.description">{{vm.validationErrors.description.msg}}</p>
+            <span class="error-label" layout="row" ng-show="createStateForm.description.$dirty && createStateForm.description.$error.required">
+                Description must be given.
+            </span>
+        </div>
+
+        <div layout="column" ng-if="vm.validationErrors.other">
+            <p class="error-label">{{vm.validationErrors.other.msg}}</p>
+        </div>
+
+        <div layout="column" ng-if="vm.serverError">
+            <p class="error-label">
+                {{vm.serverError}}
+            </p>
+            <button ng-click="vm.serverError = '';">X</button>
+        </div>
+        <div layout="row" layout-align="end">
+          <button class="button-official blue" type="submit">Create</button>
+        </div>
+    </form>
+  </div>
+
+</div>

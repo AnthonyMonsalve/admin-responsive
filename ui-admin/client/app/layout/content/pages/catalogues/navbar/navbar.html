@@ -1,0 +1,16 @@
+<div id="catalogues-sidebar" class="main-sidebar">
+	<div class="button-container menu" layout="row" ng-click="vm.toggleStatus()" layout-align="center center">
+		<i class="material-icons" ng-class="{active: !vm.sidebarStatus.isClose}">menu</i>
+	</div>
+	<div class="opts-menu">
+		<div ng-if="vm.hasAccess('content.catalogues.units')"
+			 class="button-container"
+			 layout="row"
+			 layout-align="start"
+			 ui-sref="content.catalogues.units.list"
+			 ng-class="{active: vm.$state.current.name.includes('content.catalogues.units')}">
+			<i class="material-icons">attach_money</i>
+			<p>Units</p>
+		</div>
+	</div>
+</div>
