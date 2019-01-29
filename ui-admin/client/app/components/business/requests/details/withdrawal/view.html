@@ -4,22 +4,17 @@
             <section class="message">
                 <div layout="row">
                     <h3 class="title bold">Resumen - Retiro de fondos</h3>
-                    <div flex></div>
-                    <div layout="row">
-
-                    </div>
                 </div>
-                <div style="margin-top:20px;" layout="row">
+                <div style="margin-top:20px;" layout="row" class="row-details-user">
                     <div>
-                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles de la operación</h3>
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;">Detalles de la operación</h3>
                         <p><b>Monto retirado: </b>{{vm.request.amount.toLocaleString('de-DE')}}</p>
                         <p><b>Monto a pagar: </b>{{ vm.request.deposit.toLocaleString('de-DE')}}</p>
                         <p><b>Fecha: </b>{{vm.request.createdAt | date:'dd/MM/yyyy - HH:MM '}}</p>
                         <p><b>Cliente: </b>{{vm.request.user.username}}</p>
                     </div>
-                    <div style="width:100px;"></div>
                     <div>
-                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Datos del usuario</h3>
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;">Datos del usuario</h3>
                         <p><b>Cedula/RIF: </b>{{vm.request.user.id_document}}</p>
                         <p><b>Correo: </b>{{vm.request.user.email}}</p>
                         <p><b>Username: </b>{{vm.request.user.username}}</p>
@@ -29,13 +24,13 @@
                         <p><b>Tipo de cuenta: </b>{{vm.request.receiver_info.account_type}}</p>
                     </div>
                 </div>
-                <div>
-                    <button class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
-            Marcar como listo
-          </button>
-                    <button class="button-official reject small" ng-click="vm.rejectRequest(vm.request)">
-            Rechazar
-          </button>
+                <div style="display: flex; justify-content: center; margin-top: 25px;">
+                    <button style="padding: 12px" class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
+                        Marcar como listo
+                    </button>
+                    <button style="padding: 12px" class="button-official reject small" ng-click="vm.rejectRequest(vm.request)">
+                        Rechazar
+                    </button>
                 </div>
             </section>
         </div>
