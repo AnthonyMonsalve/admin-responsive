@@ -558,6 +558,7 @@ input[disabled], select[disabled], textarea[disabled] {background-color: #ebebe4
   md-table-container {
     background-color: #ffffff;
     box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+    margin-top: 15px;
   }
 
   md-table-container.hide-icons tbody tr i {
@@ -2285,7 +2286,7 @@ div#list-community-councils div:nth-child(1) {
 
 
 label{
-  margin: 15px 10px !important;
+  margin: 5px 10px !important;
 }
 
 .paper-form.pagination-files > div{

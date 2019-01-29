@@ -1,31 +1,31 @@
 <form ng-if="!vm.loading" class="form" name="form" ng-submit="vm.submitForm(form)">
-    <div class="md-input" style="width: 80%; min-width: 300px; margin: auto;">
+    <div class="md-input" style="max-width: 700px; width: 80%; min-width: 280px; margin: auto;">
         <label>
                 <p>Para:</p>
         </label>
-        <input type="text" ng-disable="true" class="md-input text" style="width: 100%;" ng-model="vm.to" placeholder="Para" required>
+        <input type="text" ng-disable="true" class="md-input text" style="width: 100%; padding: 5px !important" ng-model="vm.to" placeholder="Para" required>
     </div>
-    <div class="md-input" style="width: 80%; min-width: 300px; margin: auto;">
+    <div class="md-input" style="max-width: 700px; width: 80%; min-width: 280px; margin: auto;">
         <label> 
                 <p>Asunto</p>
         </label>
-        <input type="text" class="md-input text" style="width: 100%;" ng-model="vm.email.subject" placeholder="Asunto" required>
+        <input type="text" class="md-input text" style="width: 100%; padding: 5px !important" ng-model="vm.email.subject" placeholder="Asunto" required>
     </div>
-    <div class="md-input" style="width: 80%; min-width: 300px; margin: auto;">
+    <div class="md-input" style="max-width: 700px; width: 80%; min-width: 280px; margin: auto;">
         <label>
             <p>Mensaje</p>
         </label>
-        <textarea style="width: 100%; margin: 5px; padding: 5px;" ng-model="vm.email.message" rows=6 placeholder="Mensaje" required></textarea>
+        <textarea style="width: 100%; margin: 5px; padding: 5px; resize: none;" ng-model="vm.email.message" rows=6 placeholder="Mensaje" required></textarea>
     </div>
     <div ta-bind ng-model="htmlVariable"></div>
-    <button class="button-official blue" type="submit" style="width: 70%;
+    <button class="button-official blue" type="submit" style="max-width: 600px; width: 70%;
     margin: 20px auto;
     padding: 12px;
     display: block;">Enviar</button>
 </form>
 <md-progress-circular ng-if="vm.loading" style="margin: 0 auto;" md-mode="indeterminate" md-diameter="60">
 </md-progress-circular>
-<div style="font-family : Lato; font-size:18px; color:#050D9E; background-color:#ffff; background-size:auto 13px; max-height: 100vh;min-height:700px; overflow: hidden; margin-top:0px;">
+<div style="font-family : Lato; font-size:18px; color:#050D9E; background-color:#ffff; background-size:auto 13px; max-height: 100vh;min-height:650px; overflow: hidden; margin-top:0px;">
     <div style="display:block; height: 420px; width:50%; margin:auto; margin-top:-15px; min-width:500px; padding-top:0; position:relative; text-align:center">
         <div style="margin:auto; width:auto;max-width: 150px; margin-bottom:20px; margin-top:20px;">
             <a href="app.yeipii.com">
