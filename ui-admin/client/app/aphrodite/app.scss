@@ -2299,6 +2299,9 @@ label{
 .row-details-user{
   display: flex; 
   justify-content: space-around;
+  div{
+    margin-top: 15px;
+  }
   @include md{
     flex-direction: column;
   }
