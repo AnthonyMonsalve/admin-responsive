@@ -393,6 +393,9 @@ input[disabled], select[disabled], textarea[disabled] {background-color: #ebebe4
 
 .title-container {
   margin-bottom: 15px;
+  @include sm{
+    margin-top: 35px;
+  }
 }
 
 .title-container {
@@ -403,12 +406,13 @@ input[disabled], select[disabled], textarea[disabled] {background-color: #ebebe4
 
   .icon-container i {
     color: #494949;
-    font-size: 46px;
+    font-size: 30px;
   }
 
   h2 {
-    font-size: 34px;
-    color: #494949;
+      font-size: 25px;
+      color: #494949;
+      text-transform: uppercase;
   }
 }
 
@@ -2289,4 +2293,17 @@ label{
     display: flex;
     flex-direction: row !important;
   }
+}
+
+.row-details-user{
+  display: flex; 
+  justify-content: space-around;
+  @include md{
+    flex-direction: column;
+  }
+}
+
+.title.bold{
+  text-align: center;
+  padding: 5px;
 }

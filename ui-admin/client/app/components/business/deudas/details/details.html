@@ -1,17 +1,13 @@
 <div class="list-table-container">
     <div layout="column">
         <div class="flat-box">
-            <section class="message">
-                <div layout="row">
+            <section class="message" style="padding: 0px">
+                <div layout="row" style="background: #ddd; padding: 10px 15px;">
                     <h3 class="title bold">Resumen del usuario</h3>
-                    <div flex></div>
-                    <div layout="row">
-
-                    </div>
                 </div>
-                <div layout="row">
-                    <div style="margin-top:20px;">
-                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles básicos</h3>
+                <div layout="row" class="row-details-user">
+                    <div style="margin-top:20px; padding: 10px 20px;">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;">Detalles básicos</h3>
                         <p><b>Nombre Completo: </b>{{vm.client.full_name}}</p>
                         <p><b>Username: </b>{{vm.client.username}}</p>
                         <p><b>Correo electrónico: </b>{{vm.client.email}}</p>
@@ -21,29 +17,26 @@
                         <p><b>Deuda: </b>{{vm.client.deuda.toLocaleString('de-DE')}} Puntos</p>
                         <!-- <p><b>Saldo antes de la reconversión: </b>{{vm.client2.balance}} Puntos</p> -->
                     </div>
-                    <div style="width:150px"></div>
-                    <div style="margin-top:20px;">
-                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles de cuenta bancaria</h3>
+                    <div style="margin-top:20px; padding: 20px;">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;">Detalles de cuenta bancaria</h3>
                         <p></p>
                         <p><b>Tipo de cuenta: </b>{{vm.client.bank_accounts[0].account_type}}</p>
                         <p><b>Cuenta verificada: </b>{{vm.client.bank_accounts[0].active ? 'SI' : 'NO'}}</p>
                     </div>
-                    <div style="width:150px"></div>
-                    <div style="margin-top:20px; width:auto; min-width:200px">
-                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Recordatorios</h3>
-                        <p><button class="button-official blue" ng-click="vm.recuerda()" style="width: 100%;">Recuerda Pagar</button></p>
+                    <div style="margin-top:20px; padding: 20px; width:auto; min-width:200px">
+                        <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;">Recordatorios</h3>
+                        <p><button class="button-official blue" ng-click="vm.recuerda()" style="width: 100%; padding: 12px">Recuerda Pagar</button></p>
                         <p></p>
                     </div>
                     <div style="width:80px"></div>
                     </div>
                 </div>
                 <div class="flat-box">
-                    <section class="message">
-                        <div >
+                    <section class="message" style="padding: 0;">
+                        <div layout="row" style="background: #ddd; padding: 10px 15px;">
                             <h3 class="title bold">Comunicaciones</h3>
-                            <div flex></div>
                         </div>
-                        <div  style="margin-top:20px; overflow:auto; height:auto; max-height:600px">
+                        <div  style="margin-top:20px;">
                             <deb-Send-Email-component to="vm.client.email" username="vm.client.username"></deb-Send-Email-component>
                         </div>
                     </section>
