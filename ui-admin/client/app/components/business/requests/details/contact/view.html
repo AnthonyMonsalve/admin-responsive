@@ -4,10 +4,6 @@
             <section class="message">
                 <div layout="row">
                     <h3 class="title bold">Resumen - {{vm.getType(vm.request.type)}}</h3>
-                    <div flex></div>
-                    <div layout="row">
-
-                    </div>
                 </div>
                 <div style="margin-top:20px;">
                     <p ng-if="!!vm.request.user"><b>Usuario: </b>{{vm.request.user.username}}</p>
@@ -19,9 +15,9 @@
                     <p><b>Mensaje: </b>{{vm.request.message}}</p>
                 </div>
                 <div>
-                    <button class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
-            Marcar como listo
-          </button>
+                    <button style="padding: 12px" class="button-official blue small" ng-click="vm.approveRequest(vm.request)">
+                        Marcar como listo
+                    </button>
                 </div>
             </section>
         </div>

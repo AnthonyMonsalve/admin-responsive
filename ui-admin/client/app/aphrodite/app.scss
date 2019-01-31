@@ -124,8 +124,8 @@ $inputsFocus: #405896;
 $defaultAnimation: 0.35s ease;
 
 ::-webkit-scrollbar {
-    width: 3px;
-    height: 2px;
+    width: 8px;
+    height: 6px;
     cursor: pointer;
 
     -webkit-transition: 0.4s width ease;
@@ -2310,4 +2310,94 @@ label{
 .title.bold{
   text-align: center;
   padding: 5px;
+}
+
+.detalles-user{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: space-between;
+  @include md{
+    flex-direction: column;
+  }
+  div{
+    width: 45%; 
+    min-width: 280px;
+    margin: 5px 0 0 0;
+    @include md{
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+}
+
+.detalles-user-2{
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 15px auto;
+  div{
+    width: 24%; 
+    min-width: 100px;
+    margin: 5px 0 0 0;
+    @include md{
+      width: 50%;
+      margin: 5px 0;
+    }
+    label{
+      @include md{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    }
+  }
+}
+
+
+.title-edicion-user{
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  background: #f8f8f8;
+  padding: 8px;
+}
+
+
+.gray{
+  @include md{
+    background: #f4f4f4;
+  }
+}
+
+.contenedor-inputs-raros{
+  height: 50px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+#div-ayuda-estetica-raros{
+  @include md{
+    display: none;
+  }
+}
+
+
+#cta-hijas-list{
+    tr:nth-child(even) {
+      background-color:#f4f4f4;
+      border-top: solid 1px #ddd;
+      border-bottom: solid 1px #ddd;
+  }
+}
+
+.list-hijas-datos{
+  display: flex; 
+  justify-content: center; 
+  padding: 6px 6px 10px 6px;
+  @include sm{
+    flex-direction: column;
+  }
 }

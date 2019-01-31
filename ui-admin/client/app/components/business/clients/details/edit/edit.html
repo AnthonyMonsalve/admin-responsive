@@ -1,48 +1,68 @@
 <div class="list-table-container">
     <div layout="row" layout-align="space-between" layout-wrap>
         <div class="flat-box" flex>
-            <section class="message">
-                <div layout="row">
-                    <h3 class="title bold">Edición del usuario</h3>
-                    <div flex></div>
-                    <div layout="row">
-
-                    </div>
+            <section class="message" style="padding: 0;">
+                <div layout="row" style="background: #ddd; padding: 5px;">
+                    <h3 class="title bold" style="text-align: center">Edición del usuario</h3>
                 </div>
-                <form name="editform" ng-submit="vm.updateClient(editform,vm.clientEdit._id)" novalidate>
-                    <div layout="row">
+                <form name="editform" ng-submit="vm.updateClient(editform,vm.clientEdit._id)" novalidate style="padding: 10px">
+                    <div layout="row" style="flex-direction: column">
                         <div style="margin-top:20px;">
-                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles básicos</h3>
-                            <p><b>Username: </b>{{vm.clientEdit.username}}</p>
-                            <p><b>Nombre completo: </b></p> <input type="text" ng-model="vm.edit.full_name">
-                            <p><b>Correo electrónico: </b></p> <input type="email" ng-model="vm.edit.email">
-                            <p><b>Cédula/RIF: </b></p> <input type="text" ng-model="vm.edit.id_document">
-                            <p><b>Celular: </b></p> <input type="text" ng-model="vm.edit.phone.number">
-                            <p><b>Saldo: </b>{{vm.edit.balance}} Puntos</p>
-                            <p><b>Deuda: </b></p> <input type="text" ng-model="vm.edit.deuda">
-                            <p><client-details-activate-component client-id="vm.clientId"></client-details-activate-component></p>
+                            <h3 class="title-edicion-user">Detalles básicos</h3>
+                            <div class="detalles-user">
+                                <div>
+                                    <p><b>Username: </b> <br> <span style="font-size: 18px; color: #000e78;">{{vm.clientEdit.username}}</span></p>
+                                </div>    
+                                <div>
+                                    <p><b>Nombre completo: </b></p> <input style="width: 90%;" type="text" ng-model="vm.edit.full_name">
+                                </div>    
+                                <div>
+                                    <p><b>Correo electrónico: </b></p> <input style="width: 90%;" type="email" ng-model="vm.edit.email">
+                                </div>
+                                <div>
+                                    <p><b>Cédula/RIF: </b></p> <input style="width: 90%;" type="text" ng-model="vm.edit.id_document">
+                                </div>
+                                <div>
+                                    <p><b>Celular: </b></p> <input style="width: 90%;" type="text" ng-model="vm.edit.phone.number">
+                                </div>
+                                <div>
+                                    <p><b>Saldo: </b> <br> <span style="font-size: 18px; color: #000e78;">{{vm.edit.balance}} Puntos</span></p>
+                                </div>
+                                <div>
+                                    <p><b>Deuda: </b></p> <input style="width: 90%;" type="text" ng-model="vm.edit.deuda">
+                                </div>
+                                <div>
+                                    <p><client-details-activate-component client-id="vm.clientId"></client-details-activate-component></p>
+                                </div>
+                            </div>
                         </div>
-
-                        <div style="width:150px"></div>
-                        <div style="margin-top:20px;">
-                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles de cuenta bancaria</h3>
-                            <p><b>Número de cuenta:</b></p> <input type="text" ng-model="vm.bankEdit.account_number">
-                            <p><b>Tipo de cuenta: </b></p> <select ng-model="vm.bankEdit.account_type">
-                                <option>Corriente</option>
-                                <option>Ahorro</option>
-                            </select>
-                            <p><b>Cuenta verificada: </b>{{vm.bankEdit.active ? 'SI' : 'NO'}}</p>
+                        <div style="margin-top:40px;">
+                            <h3 class="title-edicion-user">Detalles de cuenta bancaria</h3>
+                            <div class="detalles-user">
+                                <div>
+                                    <p><b>Número de cuenta:</b></p> <input style="width: 90%;" type="text" ng-model="vm.bankEdit.account_number">
+                                </div>
+                                <div>
+                                    <p><b>Tipo de cuenta: </b></p> 
+                                    <select style="width: 90%; padding: 5px; margin: 5px;" ng-model="vm.bankEdit.account_type">
+                                        <option>Corriente</option>
+                                        <option>Ahorro</option>
+                                    </select>
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <p><b>Cuenta verificada: </b> <br> <span style="font-size: 18px; color: #000e78;">{{vm.bankEdit.active ? 'SI' : 'NO'}}</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="button-official blue" style="width: 100%;">GUARDAR CAMBIOS</button>
+                        <button type="submit" class="button-official blue" style="width: 70%; padding: 12px; max-width: 400px; display: block; margin: auto;">GUARDAR CAMBIOS</button>
                     </div>
                 </form>
             </section>
-            <section class="message">
+            <section class="message" style="padding: 0;">
                 <client-details-sons-component momail="vm.edit.email" mom="vm.clientEdit.username" ng-if="!!vm.clientEdit.username&&vm.edit.email"></client-details-sons-component>
             </section>
         </div>
     </div>
-
 </div>

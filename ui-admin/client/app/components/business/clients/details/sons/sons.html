@@ -1,99 +1,88 @@
-<div class="title-container" layout="row">
+<div class="title-container" layout="row" style="margin: 25px 0 0 0; padding: 20px 0; display: flex; justify-content: center;">
   <div class="icon-container">
     <i class="material-icons">person</i>
   </div>
   <div>
     <h2>Cuentas Hijas</h2>
   </div>
-  <div flex></div>
-  <div></div>
 </div>
-<form name="creason "ng-submit="sn.createSon(creason,sn.mom)" style="width:100%;display:flex; flex-flow: row nowrap;justify-content: center;">
-    <div style="flex-grow:2; text-align: end">
-        <md-input-container style="margin-right: 2rem">
-                <label>Nombre</label>
-                <input ng-model="sn.son" ng-change="sn.son = sn.son.split(' ').join('')" ng-trim='false'>
-        </md-input-container>
+<form name="creason "ng-submit="sn.createSon(creason,sn.mom)" style="width:100%; border-bottom: solid 20px #f8f8f8">
+    <div class="detalles-user">
+        <div class="contenedor-inputs-raros">
+            <md-input-container style="display: block; margin: auto; width: 90%">
+                    <input placeholder="Nombre" ng-model="sn.son" ng-change="sn.son = sn.son.split(' ').join('')" ng-trim='false'>
+            </md-input-container>
+        </div>
+        <div class="contenedor-inputs-raros">
+            <md-input-container style="display: block; margin: auto; width: 90%">
+                    <input placeholder="Descripción" ng-model="sn.des">
+            </md-input-container>
+        </div>
+        <div class="contenedor-inputs-raros">
+            <md-input-container style="display: block; margin: auto; width: 90%">
+                    <input placeholder="Correo" ng-model="sn.mail">
+            </md-input-container>
+        </div>
+        <div class="contenedor-inputs-raros" id="div-ayuda-estetica-raros">
+        </div>
     </div>
-    <div style="flex-grow:2; text-align: end">
-        <md-input-container style="margin-right: 2rem; width:90%;">
-                <label>Descripción</label>
-                <input ng-model="sn.des">
-        </md-input-container>
-    </div>
-    <div style="flex-grow:2; text-align: end">
-        <md-input-container style="margin-right: 2rem; width:90%;">
-                <label>Correo</label>
-                <input ng-model="sn.mail">
-        </md-input-container>
-    </div>
-    <div style="flex-grow:1;">
-            <label><input type="checkbox" ng-model="sn.recarga">Recarga</label>
-    </div>
-    <div style="flex-grow:1;">
-            <label><input type="checkbox" ng-model="sn.transfiere">Transfiere</label>
-    </div>
-    <div style="flex-grow:1;">
-            <label><input type="checkbox" ng-model="sn.canjea">Canjea</label>
-    </div>
-    <div style="flex-grow:1;">
-        <label>  <input type="checkbox" ng-model="sn.historialMom">HistorialMom</label>
-    </div>
-    <div style="flex-grow:1;">
-            <label>  <input type="checkbox" ng-model="sn.historialSon">HistorialSon</label>
-    </div>
-    <div style="flex-grow:1;">
-            <label><input type="checkbox" ng-model="sn.balance">Balance</label>
-    </div>
-    <div style="flex-grow:1;">
-        <label><input type="checkbox" ng-model="sn.simple">Simple App</label>
+    <div class="detalles-user-2">
+        <div class="gray">
+                <label><input type="checkbox" ng-model="sn.recarga">Recarga</label>
+        </div>
+        <div class="gray">
+                <label><input type="checkbox" ng-model="sn.transfiere">Transfiere</label>
+        </div>
+        <div>
+                <label><input type="checkbox" ng-model="sn.canjea">Canjea</label>
+        </div>
+        <div>
+            <label>  <input type="checkbox" ng-model="sn.historialMom">HistorialMom</label>
+        </div>
+        <div class="gray">
+                <label>  <input type="checkbox" ng-model="sn.historialSon">HistorialSon</label>
+        </div>
+        <div class="gray">
+                <label><input type="checkbox" ng-model="sn.balance">Balance</label>
+        </div>
+        <div>
+            <label><input type="checkbox" ng-model="sn.simple">Simple App</label>
+        </div>
     </div>
     <div style="flex-grow:5; text-align: center">
-        <button type="submit" class="button-official blue" style="width: 40%;">Crear Hija</button>
+        <button type="submit" class="button-official blue" style="width: 70%; padding: 12px; max-width: 400px;">Crear Hija</button>
     </div>
-
 </form>
-
-<table md-table>
-    <thead md-head>
-        <tr md-row>
-            <td md-column>
-                username
-            </td>
-            <td md-column>
-                fecha de creación
-            </td>
-            <td md-column>
-                Permisos
-            </td>
-            <td md-column style="text-align:center">
-                Eliminar
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr md-row ng-repeat="son in sn.sons">
-            <td md-cell>
-                {{son.user.username}}
-            </td>
-            <td>
-                {{son.user.createdAt | date:'dd/MM/yyyy - HH:mm'}}
-            </td>
-            <td>
-                <label><input type="checkbox" ng-model="son.roles.recarga" ng-change='sn.togglePermitions({"recarga":son.roles.recarga,"username":son.user.username})'>Recarga</label>
-                <label><input type="checkbox" ng-model="son.roles.transfiere" ng-change='sn.togglePermitions({"transfiere":son.roles.transfiere,"username":son.user.username})'>Transfiere</label>
-                <label><input type="checkbox" ng-model="son.roles.canjea" ng-change='sn.togglePermitions({"canjea":son.roles.canjea,"username":son.user.username})'>Canjea</label>
-                <label><input type="checkbox" ng-model="son.roles.historialMom" ng-change='sn.togglePermitions({"historialmom":son.roles.historialMom,"username":son.user.username})'>HistorialMom</label>
-                <label><input type="checkbox" ng-model="son.roles.historialSon" ng-change='sn.togglePermitions({"historialson":son.roles.historialSon,"username":son.user.username})'>HistorialSon</label>
-                <label><input type="checkbox" ng-model="son.roles.balance" ng-change='sn.togglePermitions({"balance":son.roles.balance,"username":son.user.username})'>Balance</label>
-                <label><input type="checkbox" ng-model="son.user.simple" ng-change='sn.toggleSimple({"simple":son.user.simple,"id":son.user._id})'>Simple</label>
-            
-            </td>
-            <td>
-              <div layout="row" layout-align="center">
-                  <i ng-click="sn.deleteSon(son.user._id)" class="material-icons">delete_forever</i>
-              </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<h3 style="font-size: 16px; background: #ddd; text-transform: uppercase; padding: 8px; font-weight: bold">Cuentas hijas creadas</h3>
+<div style="overflow: scroll">
+    <table md-table style="margin-top: 20px;" id="cta-hijas-list">
+            <tr md-row ng-repeat="son in sn.sons">
+                <td md-cell>
+                    <div class="list-hijas-datos">
+                        <div style="padding: 6px; margin-right: 5px"><b>Usuario:</b> {{son.user.username}}</div>
+                        <div style="padding: 6px; margin-right: 5px"><b>Fecha de creación:</b> {{son.user.createdAt | date:'dd/MM/yyyy - HH:mm'}}</div>
+                    </div>
+                    <div class="list-hijas-datos">
+                        <div>
+                            <span><b>Permisos:</b></span>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.recarga" ng-change='sn.togglePermitions({"recarga":son.roles.recarga,"username":son.user.username})'>Recarga</label>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.transfiere" ng-change='sn.togglePermitions({"transfiere":son.roles.transfiere,"username":son.user.username})'>Transfiere</label>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.canjea" ng-change='sn.togglePermitions({"canjea":son.roles.canjea,"username":son.user.username})'>Canjea</label>
+                        </div>
+                        <div>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.historialMom" ng-change='sn.togglePermitions({"historialmom":son.roles.historialMom,"username":son.user.username})'>HistorialMom</label>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.historialSon" ng-change='sn.togglePermitions({"historialson":son.roles.historialSon,"username":son.user.username})'>HistorialSon</label>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.roles.balance" ng-change='sn.togglePermitions({"balance":son.roles.balance,"username":son.user.username})'>Balance</label>
+                            <label style="display: flex"><input style="width: 35px !important;" type="checkbox" ng-model="son.user.simple" ng-change='sn.toggleSimple({"simple":son.user.simple,"id":son.user._id})'>Simple</label>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="center">
+                        <i style="padding: 5px 20px;
+                        background: #f44336;
+                        color: white;
+                        border-radius: 5px;" ng-click="sn.deleteSon(son.user._id)" class="material-icons">delete_forever</i>
+                    </div>
+                </td>
+            </tr>
+    </table>
+</div>

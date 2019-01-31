@@ -1,29 +1,24 @@
 <div class="list-table-container">
     <div layout="row" layout-align="space-between" layout-wrap>
         <div class="flat-box" flex>
-            <section class="message">
-                <div layout="row">
-                    <h3 class="title bold">Opciones administrativas</h3>
-                    <div flex></div>
-                    <div layout="row">
-
-                    </div>
+            <section class="message" style="padding: 0">
+                <div layout="row" style="background: #ddd; padding: 5px">
+                    <h3 style="text-align: center;" class="title bold">Opciones administrativas</h3>
                 </div>
-                <form name="editform" ng-submit="vm.updateClient(editform,vm.client._id)">
+                <form name="editform" ng-submit="vm.updateClient(editform,vm.client._id)" style="max-width: 650px; margin: auto; padding: 10px">
                     <div layout="row">
-                        <div style="margin-top:20px;">
-                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px; font-family:'principal_regular'">Detalles administrativos</h3>
-                            <label><input type="checkbox" ng-model="vm.client.admin_options.service_prov"><p><b>tarifa: </b></p></label> <input step=".01"type="number" ng-model="vm.client.admin_options.tarifa" ng-disabled="!vm.client.admin_options.service_prov">
+                        <div style="margin-top:20px; width: 100%; display: flex; flex-direction: column;">
+                            <h3 style="font-weight:bold; font-size: 16px; text-transform: uppercase; margin-bottom:10px;"><u>Detalles administrativos</u></h3>
+                            <label style="width: 35px;"><input type="checkbox" ng-model="vm.client.admin_options.service_prov"><p><b>tarifa: </b></p></label> <input step=".01"type="number" ng-model="vm.client.admin_options.tarifa" ng-disabled="!vm.client.admin_options.service_prov">
                             <p><b>Tasa de servicio: </b></p> <input type="number" ng-model="vm.client.admin_options.withdraw_service_rate" required>
                             <p><b>Puntos promocionales: </b></p> <input type="number" ng-model="vm.client.admin_options.promotional_points">
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="button-official blue" style="width: 100%;">GUARDAR CAMBIOS</button>
+                        <button type="submit" class="button-official blue" style="width: 80%; margin: 20px auto; display: block; padding: 12px">GUARDAR CAMBIOS</button>
                     </div>
                 </form>
             </section>
         </div>
     </div>
-
 </div>
