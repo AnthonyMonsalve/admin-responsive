@@ -2401,3 +2401,17 @@ label{
     flex-direction: column;
   }
 }
+
+
+#sidebar #business-sidebar .ocult{
+  @include sm{
+    display: none;
+  }
+}
+
+#sidebar.small #business-sidebar .ocult{
+  @include sm{
+    display: block;
+    transition: 0s all;
+  }
+}
