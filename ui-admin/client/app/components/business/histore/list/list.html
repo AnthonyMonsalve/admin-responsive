@@ -1,3 +1,7 @@
+<!--RUTA:
+    Historial
+-->
+
 <div id="list-community-councils" class="list-table-container padding-content">
     <div class="title-container" layout="row">
         <div flex></div>
@@ -8,9 +12,23 @@
             </div>
         </div>
     </div>
-    <label><input type="checkbox" ng-model="vm.recarga" ng-change='vm.getClients(true)'>Recarga</label>
-    <label><input type="checkbox" ng-model="vm.canjea" ng-change='vm.getClients(true)'>Canjeo</label>
-    <label><input type="checkbox" ng-model="vm.pago" ng-change='vm.getClients(true)'>Pago</label>
+    <div style="display: flex">
+        <label class="container-input-checkbox" style="margin: 0 15px !important;">
+            <span style="margin-right: 10px">Recarga</span>
+            <input type="checkbox" ng-model="vm.recarga" ng-change='vm.getClients(true)'>
+            <span class="checkmark" style="left: 0"></span>
+        </label>
+        <label class="container-input-checkbox" style="margin: 0 15px !important;">
+            <span style="margin-right: 10px">Canjeo</span>
+            <input type="checkbox" ng-model="vm.canjea" ng-change='vm.getClients(true)'>
+            <span class="checkmark" style="left: 0"></span>
+        </label>
+        <label class="container-input-checkbox" style="margin: 0 15px !important;">
+            <span style="margin-right: 10px">Pago</span>
+            <input type="checkbox" ng-model="vm.pago" ng-change='vm.getClients(true)'>
+            <span class="checkmark" style="left: 0"></span>
+        </label>
+    </div>
     
     <md-table-container class="hide-icons">
         <table md-table md-row-select multiple ng-model="vm.selected">

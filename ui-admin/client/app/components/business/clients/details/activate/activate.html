@@ -1,11 +1,59 @@
-<label><input type="checkbox" ng-model="ac.client2.active" ng-change='ac.toggleUserActivation(ac.client2.active)'>Activado</label>
-<label><input type="checkbox" ng-model="ac.client2.blocked" ng-change='ac.toggleUserBlocked(ac.client2.blocked)'>Bloqueado</label>
-<label><input type="checkbox" ng-model="ac.client2.promo" ng-change='ac.toggleUserPromo(ac.client2.promo)'>Promocional</label>
-<label><input type="checkbox" ng-model="ac.client2.admin_options.creditAble" ng-change='ac.toggleUserCreditAble(ac.client2.admin_options.creditAble)'>Inmediata</label>
-<label><input type="checkbox" ng-model="ac.client2.dataFilter" ng-change='ac.toggleFilterActivation(ac.client2.dataFilter)'>Filtro DataExpo</label>
-<label><input type="checkbox" ng-model="ac.client2.simple" ng-change='ac.toggleSimple({"simple":ac.client2.simple,"id":ac.client2._id})'>Simple</label>
-<label><input type="checkbox" ng-model="ac.client2.access" ng-change='ac.toggleAccess({"access":ac.client2.access,"user":ac.client2._id})'>Access</label>
-<label><input type="checkbox" ng-model="ac.client2.socio" ng-change="ac.toggleSocio(ac.client2._id)">Socio</label>
+<!--
+    RUTA:
+    USUARIOS >
+             DETALLES DE USUARIO (OJO) > 
+                                        EDITAR CONTACTO
+-->
+<div style="width: 100%">
+    <div style="display:flex; width: 100%; justify-content: space-around; flex-wrap: wrap;">
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Activado
+            <input type="checkbox" ng-model="ac.client2.active" ng-change='ac.toggleUserActivation(ac.client2.active)'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Bloqueado
+            <input type="checkbox" ng-model="ac.client2.blocked" ng-change='ac.toggleUserBlocked(ac.client2.blocked)'>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div style="display:flex; width: 100%; justify-content: space-around; flex-wrap: wrap;">
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Promocional
+            <input type="checkbox" ng-model="ac.client2.promo" ng-change='ac.toggleUserPromo(ac.client2.promo)'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Inmediata
+            <input type="checkbox" ng-model="ac.client2.admin_options.creditAble" ng-change='ac.toggleUserCreditAble(ac.client2.admin_options.creditAble)'>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div style="display:flex; width: 100%; justify-content: space-around; flex-wrap: wrap;">
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Filtro DataExpo
+            <input type="checkbox" ng-model="ac.client2.dataFilter" ng-change='ac.toggleFilterActivation(ac.client2.dataFilter)'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Simple
+            <input type="checkbox" ng-model="ac.client2.simple" ng-change='ac.toggleSimple({"simple":ac.client2.simple,"id":ac.client2._id})'>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div style="display:flex; width: 100%; justify-content: space-around; flex-wrap: wrap;">
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Access
+            <input type="checkbox" ng-model="ac.client2.access" ng-change='ac.toggleAccess({"access":ac.client2.access,"user":ac.client2._id})'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container-input-checkbox" style="min-width: 150px; justify-content: space-between; padding-right: 10px;">
+            Socio
+            <input type="checkbox" ng-model="ac.client2.socio" ng-change="ac.toggleSocio(ac.client2._id)">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+</div>
 </br>
 <div style="width: 100%" ng-hide="!ac.client2.socio">
     <input type="text" style= "width: 20%" ng-model="ac.client2.partner.name" placeholder="Nombre">

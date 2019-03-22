@@ -2441,3 +2441,103 @@ label{
   padding: 20px 25px !important;
   padding-bottom: 100px !important;
 }
+
+
+.display-flex{
+  display: flex;
+  @include sm{
+    flex-direction: column;
+  }
+}
+
+.section-responsive{
+  width: 50%;
+  @include sm{
+    width: 100%;
+  }
+}
+
+.border-right{
+  border-right: solid 2px #ddd;
+  @include sm{
+    border-right: none;
+  }
+}
+
+
+//Check box de envio de email
+
+ /* Customize the label (the container) */
+ .container-input-checkbox {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-input-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0px;
+  left: 15px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  @include sm{
+    left: 0;
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.container-input-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-input-checkbox input:checked ~ .checkmark {
+  background-color: $secondColor;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-input-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-input-checkbox .checkmark:after {
+  left: 9px;
+  top: 3px;
+  width: 8px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} 
